@@ -333,6 +333,32 @@ You will now edit the `src.c` file to modify its behavior.  Hopefully the conten
 
 ---
 
+## Part 8. Redirections, Input and Output
+A final two commands are super useful for connecting the input and output of programs to files or other programs. 
+These are important to be introduced to, as you will use them in the labs. 
+
+The first of these commands is `>` (or `<`), which redirects the file or output on the bigger side to whatever is on the other side.  
+As an example the command `./a.out > output.txt` will redirect the output of the program `a.out` (which is the text printed to the terminal), into a file called `output.txt` (which will be created).  
+
+#### Task 13. Create an output.txt file by using the previous redirection.  Use `cat` to view the contents of the file. 
+
+This redirection can also be used to send a file as input to a program that normally gets its input from the command line.  For example, `grep` is a command/program that finds patterns in files. 
+To see how this works, type `grep 'first' output.txt` on the command line.  grep will print out the line from the file that has the pattern 'first' in it.  
+If no file is given to grep, then it will find the pattern in what is typed at the command line.  
+You can try this by typing `grep 'first'` on the command-line.  Then you can type lines of text.  If your line includes the pattern 'first' then grep will reprint it after you type enter. 
+(Type Ctrl-D (press Control and the D key at the same time) to end your input to grep). 
+
+#### Task 14. Send output.txt as the input to grep using redirection, by typing ``grep 'first' < output.txt``
+
+The second command is called a pipe, and is the symbol `|`.  It is used to connect the output of one program with the input of another.  
+
+For example, another way to send the output.txt file to grep is to use the cat command (which outputs the file to the terminal) and then connect that output to the input of grep with the pipe (|). 
+
+#### Task 15. Send output.txt as the input to grep using `cat` and the pipe (`|`) command, by typing ``cat output.txt | grep 'first'``
+
+Try other patterns (instead of 'first') and see what grep outputs.  You will become more familiar with these two redirection commands over the course of this semester. 
+
+
 ## Conclusion
 Congratulations!  Having finished all of the above steps you just need to enter your answers to the lab questions into Canvas and then you are done with Lab 0!  Before you go, here are a few tips and tricks for working with the terminal that might prove helpful during the course of this class. 
 
@@ -364,3 +390,5 @@ Congratulations!  Having finished all of the above steps you just need to enter 
  * `nano` editor for files
  * `cat` (concatentate) displays the contents of a file to the terminal
  * `gcc` our compiler for C code. 
+ * `>' redirection of output to a file, and `<' redirection of a file to input
+ * `|` pipe - connecting the output of a program to the input of another
