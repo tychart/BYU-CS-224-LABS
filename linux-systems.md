@@ -390,5 +390,5 @@ Congratulations!  Having finished all of the above steps you just need to enter 
  * `nano` editor for files
  * `cat` (concatentate) displays the contents of a file to the terminal
  * `gcc` our compiler for C code. 
- * `>' redirection of output to a file, and `<' redirection of a file to input
+ * `>` redirection of output to a file, and `<` redirection of a file to input
  * `|` pipe - connecting the output of a program to the input of another
