@@ -348,13 +348,21 @@ If no file is given to grep, then it will find the pattern in what is typed at t
 You can try this by typing `grep 'first'` on the command-line.  Then you can type lines of text.  If your line includes the pattern 'first' then grep will reprint it after you type enter. 
 (Type Ctrl-D (press Control and the D key at the same time) to end your input to grep). 
 
+---
+
 #### Task 14. Send output.txt as the input to grep using redirection, by typing ``grep 'first' < output.txt``
+
+---
 
 The second command is called a pipe, and is the symbol `|`.  It is used to connect the output of one program with the input of another.  
 
 For example, another way to send the output.txt file to grep is to use the cat command (which outputs the file to the terminal) and then connect that output to the input of grep with the pipe (|). 
 
+---
+
 #### Task 15. Send output.txt as the input to grep using `cat` and the pipe (`|`) command, by typing ``cat output.txt | grep 'first'``
+
+---
 
 Try other patterns (instead of 'first') and see what grep outputs.  You will become more familiar with these two redirection commands over the course of this semester. 
 
