@@ -223,7 +223,7 @@ mv file1.txt file2.txt
 When this is done, you should use the `ls` command to ensure that you only have two files: `lab0.txt` and `task8.txt` in your newly created folder.  
 
 ### Command 4. rm
-To delete a file, we use the `rm` command, which stands for *remove*.  It simply needs the path/name of the file to be deleted.  If you want to delete the `task9.txt` file that we created in Taks 8 and renamed in Task 9, you would type the following
+To delete a file, we use the `rm` command, which stands for *remove*.  It simply needs the path/name of the file to be deleted.  If you want to delete the `task8.txt` file that we created in Task 7 and renamed in Task 8, you would type the following
 
 ```
 rm task8.txt
@@ -294,7 +294,7 @@ The following questions and tasks concern the `Lab0` directory and its contents 
  * **Lab Question 6 (10 points)**: How many files are in the `f2` directory (and its sub(sub)directories? Give the name and path to each one. 
  * **Lab Question 7 (10 points)**: Give the command(s) you would use to copy `Goldilocks.txt` into the `beds` directory, assuming you start in the `f2` directory.
  * **Lab Question 8 (10 points)**: Give the command(s) you would use to delete the `JustRight.txt` file from the `chairs` subdirectory (since Goldilocks broke it), assuming you start from the `f2` directory.
- * **Lab Question 9 (15 points)**: Our hero Theseus is looking for the Minotaur monster somewhere in the `f3` directory's maze of subdirectories.  Find the file `Minotaur.txt` and give the `mv` command(s) that would move the `Theseus.txt` file into the same directory as `Minotaur.txt` so that Theseus can save the day. (assum that you start in the `f3` directory)
+ * **Lab Question 9 (15 points)**: Our hero Theseus is looking for the Minotaur monster somewhere in the `f3` directory's maze of subdirectories.  Find the file `Minotaur.txt` and give the `mv` command(s) that would move the `Theseus.txt` file into the same directory as `Minotaur.txt` so that Theseus can save the day. (assume that you start in the `f3` directory)
  * **Lab Question 10 (10 points)**: What is the full path to the directory where Theseus and the Minotaur now are?
 
 ---
