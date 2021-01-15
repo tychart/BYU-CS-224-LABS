@@ -159,7 +159,7 @@ The character representation (3) is exactly that. The ASCII character for each b
 00000010: 7574 7075 7420 6d65 616e 3f0a            utput mean?.
 ```
 
-The last character in the hex dump, `0a`, in the `nl` character for *newline*. It is outside the range with decimal value `10` and so it appears as a `.` in the character representation. Unlike the hex dump, no padding in required to fill partial lines in the character representation. 
+The last character in the hex dump, `0a`, is the `nl` character for *newline*. It is outside the range with decimal value `10` and so it appears as a `.` in the character representation. Unlike the hex dump, no padding is required to fill partial lines in the character representation. 
 
 The character representation section in the starter code is output by the function `void printDataAsChars(unsigned char* data, size_t size)`. The array `data` contains `size` number of bytes and `size` is never more than 16 but can be less than 16.
 
