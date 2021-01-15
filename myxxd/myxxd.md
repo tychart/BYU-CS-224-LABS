@@ -26,7 +26,7 @@ The [myxxd.c](myxxd.c) file contains code to parse the command line options (`pa
 
 # Submission
 
-Upload the final [myxxd.c](myxxd.c) file to [Canvas](http://canvas.byu.edu) for submission. A correct solution exactly matches the output from `xxd` with and without the `-b` flag an any input to `stdin`.
+Upload the final [myxxd.c](myxxd.c) file to [Canvas](http://canvas.byu.edu) for submission. A correct solution exactly matches the output from `xxd` with and without the `-b` flag on any input to `stdin`.
 
 # Rubric
 
