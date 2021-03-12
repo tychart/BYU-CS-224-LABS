@@ -21,7 +21,7 @@ void memoryStage(int icode, wordType valA, wordType valP, wordType valE, wordTyp
  
 }
 
-void writebackStage(int icode, wordType rA, wordType rB, wordType valE, wordType valM) {
+void writebackStage(int icode, int rA, int rB, wordType valE, wordType valM) {
  
 }
 
