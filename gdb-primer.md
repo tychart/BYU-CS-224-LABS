@@ -56,7 +56,8 @@ Most gdb commands have a longer version and a shorter abbreviation, which can be
 * Viewing the registers: `layout regs`
 * Viewing both code and registers `layout split`
 * Refresh the layout (when corrupted): `refresh`
-* Printing local variables: `print i` or `print data[i]`, where i/data[i] is the variable to print out
+* Printing local variables: `print i` or `p i`, where i is the variable to print out
+    * Example: displaying contents of register %rsp: `p $rsp`. Displaying that in hex `p/x`
 * Print contents of memory: `x/nfu address`, where n is the number of units to print, f is the format character, and u is unit (b/h/w/g for 1/2/4/8 bytes), and address is a memory address. 
 Some possible format characters:
     * a - pointer
