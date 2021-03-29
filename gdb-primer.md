@@ -57,18 +57,19 @@ Most gdb commands have a longer version and a shorter abbreviation, which can be
 * Viewing both code and registers `layout split`
 * Refresh the layout (when corrupted): `refresh`
 * Printing local variables: `print i` or `print data[i]`, where i/data[i] is the variable to print out
-* Print contents of memory: `x/nfu address`, where n is the number of units to print, f is the format character, and u is unit (b/h/w/g for 1/2/4/8 bytes), and address is a memory address  Format characters:
-  * a - pointer
-  * c - character
-  * d - signed decimal
-  * f - floating point number
-  * s - C string
-  * t - binary number
-  * u - unsigned decimal
-  * x - hexadecimal
+* Print contents of memory: `x/nfu address`, where n is the number of units to print, f is the format character, and u is unit (b/h/w/g for 1/2/4/8 bytes), and address is a memory address. 
+Some possible format characters:
+    * a - pointer
+    * c - character
+    * d - signed decimal
+    * f - floating point number
+    * s - C string
+    * t - binary number
+    * u - unsigned decimal
+    * x - hexadecimal
 
 ## Additional resources:
-Obviously, this is a very condensed list of gdb commands, but it should be enough to help you succeed on the labs for this class. Additionaly resources can be found: 
+Obviously, this is a very condensed list of gdb commands, but it should be enough to help you succeed on the labs for this class. Additional resources can be found: 
 
   * Help: `help` (gives subtopics for example `help breakpoints`)
   * Googling something like `gdb tutorial` or `gdb cheatsheet` should pull up lots of useful information. 
