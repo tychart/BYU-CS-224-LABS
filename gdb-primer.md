@@ -68,6 +68,7 @@ Some possible format characters:
     * t - binary number
     * u - unsigned decimal
     * x - hexadecimal
+* Viewing the memory location that register %rax is pointing to: `x $rax`.  Display that in decimal `x/d $rax`
 
 ## Additional resources:
 Obviously, this is a very condensed list of gdb commands, but it should be enough to help you succeed on the labs for this class. Additional resources can be found: 
