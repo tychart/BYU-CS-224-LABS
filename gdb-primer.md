@@ -35,7 +35,7 @@ Most gdb commands have a longer version and a shorter abbreviation, which can be
 * To exit gdb: `quit` or `q`
 
 ### Breakpoints
-* Setting a breakpoint: `break myxxd.c:37` or `b myxxd.c:37`.  Any line number, label, or memory address can be specified. 
+* Setting a breakpoint: `break myxxd.c:37` or `b myxxd.c:37`.  Any line number, label (like a function name (i.e. main)), or memory address can be specified. 
 * View current breakpoints: `info breakpoints` 
 * Deleting a breakpoint: `delete 1` or `d 1`, where 1 is the number of the breakpoint to be deleted (shown as `Num` in the output of `info breakpoints`)
 
