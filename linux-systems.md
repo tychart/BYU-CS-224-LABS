@@ -1,7 +1,7 @@
 # Lab 0 - Linux Systems
 
 This lab will introduce you to the basics of the Linux systems we will be using this semester. 
-Every student is required to use the departments linux lab machines for this class. 
+Every student is required to use the departments linux lab machines for **all labs** for this class. 
 This can be done either by physically being in the labs and logging onto the machines, or by using another computer to remotely log into the machines.  Tasks that need to be performed to complete the lab are indicated as follows: 
 
 ---
@@ -291,10 +291,10 @@ The following questions and tasks concern the `Lab0` directory and its contents 
  * **Lab Question 3 (5 points)**: How many subdirectories are in the `f1` directory?  What are their names?
  * **Lab Question 4 (10 points)**: How many files are in the `f1` directory? What are their names?
  * **Lab Question 5 (10 points)**: How many subdirectories are in the `f2` directory (counting all subdirectories of subdirectories etc. as well)? What are their names?
- * **Lab Question 6 (10 points)**: How many files are in the `f2` directory (and its sub(sub)directories? Give the name and path to each one. 
- * **Lab Question 7 (10 points)**: Give the command(s) you would use to copy `Goldilocks.txt` into the `beds` directory, assuming you start in the `f2` directory.
- * **Lab Question 8 (10 points)**: Give the command(s) you would use to delete the `JustRight.txt` file from the `chairs` subdirectory (since Goldilocks broke it), assuming you start from the `f2` directory.
- * **Lab Question 9 (15 points)**: Our hero Theseus is looking for the Minotaur monster somewhere in the `f3` directory's maze of subdirectories.  Find the file `Minotaur.txt` and give the `mv` command(s) that would move the `Theseus.txt` file into the same directory as `Minotaur.txt` so that Theseus can save the day. (assume that you start in the `f3` directory)
+ * **Lab Question 6 (10 points)**: How many files are in the `f2` directory (and its sub(sub)directories? Give the name and full path to each one. 
+ * **Lab Question 7 (10 points)**: Give the *single* command you would use to copy `Goldilocks.txt` into the `beds` directory, assuming you are in the `f2` directory.
+ * **Lab Question 8 (10 points)**: Give the *single* command you would use to delete the `JustRight.txt` file from the `chairs` subdirectory (since Goldilocks broke it), assuming you are in the `f2` directory.
+ * **Lab Question 9 (15 points)**: Our hero Theseus is looking for the Minotaur monster somewhere in the `f3` directory's maze of subdirectories.  Find the file `Minotaur.txt` and give the *single* `mv` command that would move the `Theseus.txt` file into the same directory as `Minotaur.txt` so that Theseus can save the day. (assume that you are in the `f3` directory when the command is typed.)
  * **Lab Question 10 (10 points)**: What is the full path to the directory where Theseus and the Minotaur now are?
 
 ---
