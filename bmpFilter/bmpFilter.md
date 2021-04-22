@@ -46,7 +46,7 @@ If there are any differences then the result of the `diff` command will tell you
 You can also use stream redirection with a pipe to compare the output of the program to a given filtered version, without saving the output in between. This is done as follows:
 
 ```
-./a.out -g < images/orig-horses.bmp | diff - images/grayscale-horses.bmp 
+$ ./a.out -g < images/orig-horses.bmp | diff - images/grayscale-horses.bmp 
 ```
 
 The `-` character means that the first argument to `diff` comes from `stdin`. The `-` can be used for the left or right argument. 
@@ -54,7 +54,7 @@ The `-` character means that the first argument to `diff` comes from `stdin`. Th
 Here is an example that uses pipes to generate the `xxd` dump of the filtered image and then compare that to the given `xxd` dump for the correct image. This command is very helpful for debugging.
 
 ```
-./a.out -g < images/orig-horses.bmp | xxd | diff - images/grayscale-horses.txt 
+$ ./a.out -g < images/orig-horses.bmp | xxd | diff - images/grayscale-horses.txt 
 ```
 
 Here in this example the pipes are used to first generate the `xxd` output from the `a.out` and then redirect that into the `diff` utility.
@@ -88,7 +88,7 @@ Upload the final [bmpFilter.c](bmpFilter.c) file to [Canvas](http://canvas.byu.e
 # Rubric
 
   * Setting value for `offsetFirstBytePixelArray`, `width`, `height`, and `pixelArray` in `void parseHeaderAndApplyFilter(unsigned char* bmpFileAsBytes, int isGrayscale)` (40 points)
-  *  `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)` (40 points)
+  * `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)` (40 points)
   * `void applyFilterToRow(unsigned char* row, int width, int isGrayscale)` (40 points)
   * `void applyFilterToPixel(unsigned char* pixel, int isGrayscale)` (10 points)
   * `void applyThresholdToPixel(unsigned char* pixel)` (20 points)
@@ -105,7 +105,7 @@ Upload the final [bmpFilter.c](bmpFilter.c) file to [Canvas](http://canvas.byu.e
 The labs are in a `git` repository named [byu-cs-224-labs](https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/). There is a button on the page named **Clone**, click that button, copy the command, and past it into the terminal. It will download the files directly to the remote machine. Here is the command to save time with following the link:
 
 ```
-git clone https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/
+$ git clone https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/
 ```
 
 `git` is not part of this course. It is just a convenient way to distribute files. Once the files exist on the machine, nothing else is done with git until the next lab, in which case the command `git pull` in the directory will get the new files or the repository can be cloned again in a different location.
@@ -145,7 +145,7 @@ The [file layout](fileLayout.png) shows the general structure of the BMP file. T
 
 A pixel is a sequence of three bytes. The order of the bytes is  **blue**, **green**, and finally **red**. A `bmp` image has a `width` and a `height` measured from the bottom left corner of the image. The `width` is the number of pixels in each row of the image. The `height` is the number of rows in the image. 
 
-The pixel array stores the image in **row major order*. Row major order stores rows in order in the array. If the image has `width = 4` and `height = 3`, then below is an illustration of the pixel array where `i,j` is the `i`-th row and the `j`-th pixel in that row.
+The pixel array stores the image in **row major order**. Row major order stores rows in order in the array. If the image has `width = 4` and `height = 3`, then below is an illustration of the pixel array where `i,j` is the `i`-th row and the `j`-th pixel in that row.
 
 ```
 addresses --->
