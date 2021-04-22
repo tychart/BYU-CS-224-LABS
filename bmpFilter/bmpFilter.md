@@ -11,16 +11,39 @@
 
 # Project Summary
 
-The goal of this lab is to write a program that reads a bitmap (`bmp`) file from standard in (`stdin`), apply a threshold or grayscale filter to that image, and then write the filtered image to standard out (`stdout`).  Here are two usage examples.
+The goal of this lab is to write a program that reads a bitmap (`bmp`) file from standard in (`stdin`), apply a threshold or grayscale filter to that image, and then write the filtered image to standard out (`stdout`).  
 
+# Compiling
+
+To compile the code, use the command: `gcc -g -Wall bmpFilter.c`. 
+
+To compile with debugging information being sent to stdout, instead of the image bytes instead use the command: `gcc -g -Wall -DDEBUG bmpFilter.c`
+
+The `-DDEBUG` option defines the `DEBUG` symbol for the pre-processor. The preprocessor will include or exclude code depending on whether or not `DEBUG` is defined. You can see this in the code where there are code sections that begin with `#ifdef DEBUG` and end with `#endif`.  Anything inside those two statements will only be included in the compiled code if `DEBUG` is defined. More details about these debugging options are given later in this write-up. 
+
+# Running the program
+
+In this lab standard input and standard output are used to pass images to the program and save the filtered image.  Two usage examples: 
 ```
 $ ./a.out < ./images/orig-cheese.bmp > threshold-cheese.bmp
-$ ./a.out -g < ./images/ogig-cheese.bmp > grayscale-cheese.bmp
+$ ./a.out -g < ./images/orig-cheese.bmp > grayscale-cheese.bmp
 ```
 
 The `<` character redirects the file `./images/orig-cheese.bmp` to standard input for `a.out` to read. The `>` characters redirects the standout output from `a.out` to the file `threshold-cheese.bmp`. The second example shows how to enable the grayscale filter with the `-g` flag.
 
-Here is an example that uses the stream redirection with a pipe to compare the output on the given filtered version.
+# Testing and Debugging
+
+Two test the output of your filter, save the resulting image, and then check to see if it differs at all from the provided output files. This is done using the `diff` command. `diff` takes in two arguments, which it then compares.  
+
+```
+$ diff /images/threshold-cheese.bmp my-threshold-cheese.bmp
+```
+
+If there are any differences then the result of the `diff` command will tell you. 
+
+## More efficient testing
+
+You can also use stream redirection with a pipe to compare the output of the program to a given filtered version, without saving the output in between. This is done as follows:
 
 ```
 ./a.out -g < images/orig-horses.bmp | diff - images/grayscale-horses.bmp 
@@ -36,19 +59,6 @@ Here is an example that uses pipes to generate the `xxd` dump of the filtered im
 
 Here in this example the pipes are used to first generate the `xxd` output from the `a.out` and then redirect that into the `diff` utility.
 
-The [bmpFilter.c](bmpFilter.c) files contains code to parse the command line options (`parseCommandLine`), read the entire file from `stdin` and store it into a `unsigned char*` array that is an exact byte-for-byte copy of the original file (`getBmpFileAsBytes`), call code to interpret the array and apply the appropriate filter (`parseHeaderAndApplyFilter`), and then write the entire array for the file to `stdout`.
-
-The file includes additional structure to pattern good programing style. The entry point is `parseHeaderAndApplyFilter`. The parsing extracts from the header for the image the size of the image and where it is located in the array. The filter problem is then decomposed into these steps:
-
-  1. `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`: iterate over each row in the pixel array calling step 2 on each one
-  2. `void applyFilterToRow(unsigned char* row, int width, int isGrayscale)`: iterate over each pixel in the row and call step 3 on each one
-  3. `void applyFilterToPixel(unsigned char* pixel, int isGrayscale)`: call the appropriate step 4 filter on each pixel
-  4. `void applyThresholdToPixel(unsigned char* pixel)` or `applyGrayscaleToPixel(unsigned char* pixel)`: write the new value of the pixel using step 5
-  5. `unsigned char getAverageIntensity(unsigned char blue, unsigned char green, unsigned char red)`: compute the average intensity of a pixel
-
-Notice that each function does one simple computation that is one part of what is needed to filter the image.
-
-**Extra Credit:** Implement an additional filter that scales down the image by 50%.
 
 # Where to start?
 
@@ -59,13 +69,13 @@ Notice that each function does one simple computation that is one part of what i
     2. The `width` of the image
     3. The `height` of the image
     4. The start of the actual pixel array in the byte array (`pixelArray`)
- 4. Write an equation that uses `width` to compute the padding that separates each row in the pixel array so that the numbers of bytes in each row is a multiple of 4
+ 4. Write an equation that uses `width` to compute the padding that separates each row in the pixel array so that the numbers of bytes in each row is a multiple of 4.  Make sure this outputs the correct padding for each sample image. 
  5. Write code top-down starting at `parseHeaderAndApplyFilter` or bottom-up starting at ``getAverageIntensity` -- it is a matter of personal preference but a top down attack would be:
     1. Iterate over each row in the pixel array (`void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`)
     2. Iterate over each pixel in a row (`void applyFilterToRow(unsigned char* row, int width, int isGrayscale)`)
     3. Filter each pixel to update it in the pixel array (`void applyFilterToPixel(unsigned char* pixel, int isGrayscale)`)
       1. `void applyThresholdToPixel(unsigned char* pixel)` or `void applyGrayscaleToPixel(unsigned char* pixel)`
-      1. `unsigned char getAverageIntensity(unsigned char blue, unsigned char green, unsigned char red)`
+      2. `unsigned char getAverageIntensity(unsigned char blue, unsigned char green, unsigned char red)`
  6. Use the `-DDEBUG` compiler flag to test a function **before** starting the next function in the chain
  7. Use `diff`, `xxd`, and `gdb` the test and debug each file as needed
 
@@ -99,6 +109,23 @@ git clone https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/
 ```
 
 `git` is not part of this course. It is just a convenient way to distribute files. Once the files exist on the machine, nothing else is done with git until the next lab, in which case the command `git pull` in the directory will get the new files or the repository can be cloned again in a different location.
+
+# The Starter Code and your Tasks
+
+The [bmpFilter.c](bmpFilter.c) files contains code to parse the command line options (`parseCommandLine`), read the entire file from `stdin` and store it into a `unsigned char*` array that is an exact byte-for-byte copy of the original file (`getBmpFileAsBytes`), call code to interpret the array and apply the appropriate filter (`parseHeaderAndApplyFilter`), and then write the entire array for the file to `stdout`.
+
+The file includes additional structure to pattern good programing style. The entry point is `parseHeaderAndApplyFilter`. The parsing extracts from the header for the image the size of the image and where it is located in the array. The filter problem is then decomposed into these steps:
+
+  1. `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`: iterate over each row in the pixel array calling step 2 on each one
+  2. `void applyFilterToRow(unsigned char* row, int width, int isGrayscale)`: iterate over each pixel in the row and call step 3 on each one
+  3. `void applyFilterToPixel(unsigned char* pixel, int isGrayscale)`: call the appropriate step 4 filter on each pixel
+  4. `void applyThresholdToPixel(unsigned char* pixel)` or `applyGrayscaleToPixel(unsigned char* pixel)`: write the new value of the pixel using step 5
+  5. `unsigned char getAverageIntensity(unsigned char blue, unsigned char green, unsigned char red)`: compute the average intensity of a pixel
+
+Notice that each function does one simple computation that is one part of what is needed to filter the image.
+
+**Extra Credit:** Implement an additional filter that scales down the image by 50%.
+
 
 # Bitmap Header
 
@@ -209,7 +236,7 @@ This filter will scale an image down to half its dimensions in both `width` and 
 
 The [starter file][bmpFilter.c] includes the following code in the `void parseHeaderAndApplyFilter(unsigned char* bmpFileAsBytes, int isGrayscale)`
 
-```c
+```
 #ifdef DEBUG
   printf("offsetFirstBytePixelArray = %u\n", offsetFirstBytePixelArray);
   printf("width = %u\n", width);
@@ -219,7 +246,7 @@ The [starter file][bmpFilter.c] includes the following code in the `void parseHe
 
 The code uses the pre-processor to conditionally include code. There is also this code in the `int main(int argc, char **argv)` function.
 
-```c
+```
 #ifndef DEBUG
   if (fwrite(bmpFileAsBytes, fileSizeInBytes, 1, stdout) != 1) {
     exit(FWRITE_ERROR);

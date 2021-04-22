@@ -15,6 +15,7 @@ fileSizeInBytes = 1254
 offsetFirstBytePixelArray = 54
 width = 20
 height = 20
+padding = 0
 ``` 
 
 `orig-byu.bmp`:
@@ -24,6 +25,7 @@ fileSizeInBytes = 480054
 offsetFirstBytePixelArray = 54
 width = 400
 height = 400
+padding = 0
 ```
 
 `orig-fish.bmp`:
@@ -33,6 +35,7 @@ fileSizeInBytes = 151838
 offsetFirstBytePixelArray = 138
 width = 273
 height = 185
+padding = 1
 ```
 
 `orig-cheese.bmp`:
@@ -42,6 +45,7 @@ fileSizeInBytes = 1267930
 offsetFirstBytePixelArray = 54
 width = 750
 height = 563
+padding = 2
 ```
 
 `orig-horses.bmp`:
@@ -51,6 +55,7 @@ fileSizeInBytes = 2408470
 offsetFirstBytePixelArray = 70
 width = 1200
 height = 669
+padding = 0
 ```
 
 # Comparing Files and Identifying Differences
