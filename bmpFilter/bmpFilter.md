@@ -7,7 +7,6 @@
   * Illustrate row-major order for storing two dimensional arrays
   * Use stream redirection to provide input and capture output from a program
   * Define variables for the C pre-processor and use pre-preprocessor directives to conditionally include code at compilation
-  * Practice basic debugging in `gdb`
 
 # Project Summary
 
@@ -17,7 +16,7 @@ The goal of this lab is to write a program that reads a bitmap (`bmp`) file from
 
 To compile the code, use the command: `gcc -g -Wall bmpFilter.c`. 
 
-To compile with debugging information being sent to stdout, instead of the image bytes instead use the command: `gcc -g -Wall -DDEBUG bmpFilter.c`
+To compile with debugging information being sent to `stdout`, instead of the image bytes instead use the command: `gcc -g -Wall -DDEBUG bmpFilter.c`
 
 The `-DDEBUG` option defines the `DEBUG` symbol for the pre-processor. The preprocessor will include or exclude code depending on whether or not `DEBUG` is defined. You can see this in the code where there are code sections that begin with `#ifdef DEBUG` and end with `#endif`.  Anything inside those two statements will only be included in the compiled code if `DEBUG` is defined. More details about these debugging options are given later in this write-up. 
 
@@ -60,9 +59,9 @@ $ ./a.out -g < images/orig-horses.bmp | xxd | diff - images/grayscale-horses.txt
 Here in this example the pipes are used to first generate the `xxd` output from the `a.out` and then redirect that into the `diff` utility.
 
 
-# Where to start?
+# How to get started?
 
- 1. Read all of the write up carefully to understand the `bmp` file format -- the file is copied into `bmpFileAsBytes` by the starter code
+ 1. Read all of this write up carefully to understand the `bmp` file format -- the file is copied into `bmpFileAsBytes` by the starter code.  
  2. Study the starter code in [bmpFilter.c](bmpFilter.c) and correlate it with the writeup
  3. Identify where in the header the following information is located:
     1. The offset to the start of the pixel array (`offsetFirstBytePixelArray`)
@@ -70,7 +69,7 @@ Here in this example the pipes are used to first generate the `xxd` output from 
     3. The `height` of the image
     4. The start of the actual pixel array in the byte array (`pixelArray`)
  4. Write an equation that uses `width` to compute the padding that separates each row in the pixel array so that the numbers of bytes in each row is a multiple of 4.  Make sure this outputs the correct padding for each sample image. 
- 5. Write code top-down starting at `parseHeaderAndApplyFilter` or bottom-up starting at ``getAverageIntensity` -- it is a matter of personal preference but a top down attack would be:
+ 5. Write code top-down starting at `parseHeaderAndApplyFilter` or bottom-up starting at `getAverageIntensity` -- it is a matter of personal preference but a top down attack would be (for a bottom up approach, simply reverse the steps):
     1. Iterate over each row in the pixel array (`void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`)
     2. Iterate over each pixel in a row (`void applyFilterToRow(unsigned char* row, int width, int isGrayscale)`)
     3. Filter each pixel to update it in the pixel array (`void applyFilterToPixel(unsigned char* pixel, int isGrayscale)`)

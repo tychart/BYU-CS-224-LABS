@@ -13,7 +13,34 @@ The goal of this lab is to write a program that mimics some of the functionality
 
 The [myxxd.c](myxxd.c) file contains code to parse the command line options (`parseCommandLine`) and then call the appropriate output function for the hex dump (`readAndPrintInputAsHex`) or the bits dump (`readAndPrintInputAsBits`). The file also contains an implementation of `readAndPrintInputAsHex` to handle reading from `stdin` using the `fread` C library function. The implementation of `readAndPrintInputAsHex` calls two unimplemented functions `printDataAsHex` and `printDataAsChars` that produce the actual hex dump. Implementing these two functions is the starting point for the lab. Once these are implemented and tested, follow the same structure to implement `readAndPrintInputAsBits`: the function should be implemented using the same decomposition of the problem as in `readAndPrintInputAsHex` but differ in the number of bytes read at a time by `fread` and how those bytes are displayed in the output.  
 
-# Where to start?
+
+# Compiling
+
+The program is compiled with the following command.
+
+```
+$ gcc -Wall -g myxxd.c -o myxxd
+```
+
+The `-Wall` tells `gcc` to issue warnings an anything that seems odd. The `-o` names the executable as `myxxd`. The `-g` includes debug information in the executable and is useful when using `gdb` (see *Debugging with gdb*).
+
+#Running the program 
+
+To run the program, simply type the following at the command prompt:
+
+```
+$ ./myxxd
+```
+
+The program is set up to get input from `standard input`, also known as `stdin`.  For more details on different ways to pass input to your program, see the section below on Providing Input in the Project Details section of the writeup.
+
+#Testing and Debugging
+
+To test the output of your program, you will compare its output to that of `xxd` on many different files. 
+Details of how to do this are provided in the Checking Output section of the Project Details later on in this writeup.
+Make sure to test on many different types of files: `.txt` files, executable files (you can test on the compiled `myxxd` executable itself!), `.c` files, image files, etc.
+
+# How to get started?
 
   1. Read all of the writeup.
   2. Play with `xxd` and I/O redirection as you read about them in the writeup.
@@ -54,22 +81,6 @@ git clone https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/
 # Project Details
 
 Carefully reading the project details is likely to save hours in completing the lab. Take time to understand **what** needs to be done, then plan out **how** to get it done, and finally do it. Each of the sections below is intended to answer the **what** and **how** for this project.
-
-## Building and Running the Program
-
-The program is build with the following command.
-
-```
-$ gcc -Wall -g myxxd.c -o myxxd
-```
-
-The `-Wall` tells `gcc` to issue warnings an anything that seems odd. The `-o` names the executable as `myxxd`. The `-g` includes debug information in the executable and is useful when using `gdb` (see *Debugging with gdb*).
-
-Running the program is equally as easy.
-
-```
-$ ./myxxd
-```
 
 ## Providing Input
 
@@ -180,7 +191,11 @@ As before, padding is added to fill partially complete lines. Functionality for 
 
 ## Printing Bits
 
-Implement the algorithm covered in class to convert an `unsigned char` to a string in bits. The pseudo-code is below and takes as input an `unsigned char` with name `x`.
+While bytes in memory can be easily printed in hexadecimal using the `%x` formatting string with `printf`, there is no format string which will cause `printf` to print memory contents in binary. 
+You will have to implement a function that will determine, for any byte in memory, a sequence of 8 ASCII characters (0s or 1s) that represents the binary contents of that memory bytes. 
+There are many different algorithms that this function could utilize for this task.  
+One option is to implement the algorithm covered in class to convert an `unsigned char` to a string in bits. 
+The pseudo-code for this is given below and takes as input an `unsigned char` with name `x`.
 
 ```c
 /* repeat 8 times */
