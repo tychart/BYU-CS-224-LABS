@@ -24,7 +24,7 @@ $ gcc -Wall -g myxxd.c -o myxxd
 
 The `-Wall` tells `gcc` to issue warnings an anything that seems odd. The `-o` names the executable as `myxxd`. The `-g` includes debug information in the executable and is useful when using `gdb` (see *Debugging with gdb*).
 
-#Running the program 
+# Running the program 
 
 To run the program, simply type the following at the command prompt:
 
@@ -34,7 +34,7 @@ $ ./myxxd
 
 The program is set up to get input from `standard input`, also known as `stdin`.  For more details on different ways to pass input to your program, see the section below on Providing Input in the Project Details section of the writeup.
 
-#Testing and Debugging
+# Testing and Debugging
 
 To test the output of your program, you will compare its output to that of `xxd` on many different files. 
 Details of how to do this are provided in the Checking Output section of the Project Details later on in this writeup.
