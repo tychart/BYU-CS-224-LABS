@@ -10,7 +10,7 @@
 
 # Project Summary
 
-The goal of this lab is to write a program that reads a bitmap (`bmp`) file from standard in (`stdin`), apply a threshold or grayscale filter to that image, and then write the filtered image to standard out (`stdout`).  
+The goal of this project is to write a program that reads a bitmap (`bmp`) file from standard in (`stdin`), apply a threshold or grayscale filter to that image, and then write the filtered image to standard out (`stdout`).  
 
 # Compiling
 
@@ -22,7 +22,7 @@ The `-DDEBUG` option defines the `DEBUG` symbol for the pre-processor. The prepr
 
 # Running the program
 
-In this lab standard input and standard output are used to pass images to the program and save the filtered image.  Two usage examples: 
+In this project standard input and standard output are used to pass images to the program and save the filtered image.  Two usage examples: 
 ```
 $ ./a.out < ./images/orig-cheese.bmp > threshold-cheese.bmp
 $ ./a.out -g < ./images/orig-cheese.bmp > grayscale-cheese.bmp
