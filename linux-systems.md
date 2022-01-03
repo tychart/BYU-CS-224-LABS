@@ -1,7 +1,7 @@
-# Lab 0 - Linux Systems
+# Lab 1 - Linux Systems
 
 This lab will introduce you to the basics of the Linux systems we will be using this semester. 
-Every student is required to use the departments linux lab machines for **all labs** for this class. 
+Every student is required to use the departments linux lab machines for **all projects** for this class. 
 This can be done either by physically being in the labs and logging onto the machines, or by using another computer to remotely log into the machines.  Tasks that need to be performed to complete the lab are indicated as follows: 
 
 ---
