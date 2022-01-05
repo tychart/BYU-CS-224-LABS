@@ -1,7 +1,7 @@
 # Lab 2 - C Programming
 
 This lab will introduce you to some of the details of the C programming language that we will use this semester and give you a chance to practice writing code in the C language. 
-This lab can be completed on any computing system with C.  A convenient online C environment can be found at https://www.tutorialspoint.com/compile_c_online.php.  
+This lab can be completed on any computing system with C.  A convenient online C environment can be found at <https://www.tutorialspoint.com/compile_c_online.php>.  
 
 
 ## Some C Basics
@@ -10,7 +10,7 @@ In this first section we will get some practice with some of the C basics that w
 
 ### Basic Types
 
-In C there is a very limited set of available types that variables can be.  These are `char`, `short`, `int`, `long`, `float`, and `double`.  The first 4 types are used to store whole numbers (integers), with each of the 4 types using a different amount of space and thus being able to take on a different range of possible values.  The smallest type is `char` which has (just) enough space to represent the set of ASCII characters (basically everything you can type on a keyboard.  See https://www.asciitable.com/ for the full ASCII code).  Each of these whole number types are signed by default (they can represent positive and negative numbers), but we can also have unsigned versions of them (which can only represent non-negative whole numbers). These are declared as `unsigned char`, `unsigned short`, etc. 
+In C there is a very limited set of available types that variables can be.  These are `char`, `short`, `int`, `long`, `float`, and `double`.  The first 4 types are used to store whole numbers (integers), with each of the 4 types using a different amount of space and thus being able to take on a different range of possible values.  The smallest type is `char` which has (just) enough space to represent the set of ASCII characters (basically everything you can type on a keyboard.  See <https://www.asciitable.com> for the full ASCII code).  Each of these whole number types are signed by default (they can represent positive and negative numbers), but we can also have unsigned versions of them (which can only represent non-negative whole numbers). These are declared as `unsigned char`, `unsigned short`, etc. 
 The `float` and `double` types are used to represent *floating point* numbers, i.e. numbers with decimal places or exponents, like 3.14159 or 2.14e19.   As before, each type uses a different amount of space (memory) and thus can represent a different range of possible floating point numbers. 
 
 ---
@@ -21,7 +21,7 @@ The `float` and `double` types are used to represent *floating point* numbers, i
 
 ### Pointer Types
 
-Each of the variables you just created is stored at a location in memory.  A *pointer type* is a special type in C that stores a memory address.  Each of the basic types above has a pointer type that stores an address pointing to a variable of that type.  The address is just an address, but the type of the pointer helps the compile know what to look for at that address, since different types use memory in different ways.  Pointer types are designated by an asterisk `*` after the basic type that it is pointing to.  So, there is a pointer to a `char` which is written `char *`, and there is a pointer to an `int`, which is written as `int *`.   C also supports a generic pointer, called a `void *`.  This is simply a memory address, with no type information about how that memory should be intepreted. 
+Each of the variables you just created is stored at a location in memory.  A *pointer type* is a special type in C that stores a memory address.  Each of the basic types above has a pointer type that stores an address pointing to a variable of that type.  The address is just an address, but the type of the pointer helps the compiler know what to look for at that address, since different types use memory in different ways.  Pointer types are designated by an asterisk `*` after the basic type that it is pointing to.  So, there is a pointer to a `char` which is written `char *`, and there is a pointer to an `int`, which is written as `int *`.   C also supports a generic pointer, called a `void *`.  This is simply a memory address, with no type information about how that memory should be intepreted. 
 
 So how can we create pointers to the variables you created in Task 1?  C has a special operator `&` (*address of*) which will return the address of a given variable.  This address has the pointer type corresponding to the variable type.  So, if I have a `char c`, then I can create a `char *` pointer named `c_p` pointing to it by writing:
 
