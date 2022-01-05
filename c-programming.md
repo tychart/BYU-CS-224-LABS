@@ -120,7 +120,7 @@ If nothing is swapped on a pass through the list then the algorithm stops.
 Here is pseudo-code for the algorithm.
 
 ```
-procedure bubble-sort(A : list of numbers)
+function bubble-sort(A : list of numbers)
   n = number of numbers in A
   repeat
     swapped = false
@@ -131,5 +131,5 @@ procedure bubble-sort(A : list of numbers)
       end if
     end for
   until not swapped
-end procedure
+end function
 ```
