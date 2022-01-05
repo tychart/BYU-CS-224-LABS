@@ -154,7 +154,7 @@ If you type `cd` and press enter (without an argument) it will return you to you
 
 ---
 
-#### Task 5. Use `cd` to move into the directory you created for Task 5.  Then use `cd ..` to move back into your home directory.
+#### Task 5. Use `cd` to move into the directory you created for Task 4.  Then use `cd ..` to move back into your home directory.
 
 ---
 
@@ -171,20 +171,20 @@ We will now introduce the commands that allow us to work with files through the 
 
 To create an empty file of a specific name in the current directory, we will use the command `touch`.  This command requires the name of the file to be created/touched.  If the file already exists, then the file will not be changed, except for the time stamp that indicates when it was modified.  This is useful in many situations. If the file does not exist, then `touch` will create it.  As an example, to create a file called `lab0.txt` you would type
 ```
-touch lab0.txt
+touch lab1.txt
 ```
 in the directory where you want the file to be created. 
 
 ---
 
-#### Task 6. Use `touch` to create a file called `lab0.txt` in the directory you created for Task 5. 
+#### Task 6. Use `touch` to create a file called `lab1.txt` in the directory for this class that you created for Task 4. 
 
 ---
 
 ### Command 2. cp
-Often we want to copy a file from some location where it already exists to our current location.  To do this we use the `cp` command, which stands for *copy*.  `cp` needs you to specify the name/path of the file to be copied, as well as the path/name of the new copied file that it will create.  To create a copy of our file called `lab0.txt`, and name the new copied file `lab00.txt`, you would type
+Often we want to copy a file from some location where it already exists to our current location.  To do this we use the `cp` command, which stands for *copy*.  `cp` needs you to specify the name/path of the file to be copied, as well as the path/name of the new copied file that it will create.  To create a copy of our file called `lab1.txt`, and name the new copied file `lab01.txt`, you would type
 ```
-cp lab0.txt lab00.txt
+cp lab1.txt lab01.txt
 ```
 
 Often we are copying a file from another directory to another directory, and we want the file to keep the same name.  In this case the second argument, where before we had the name of the newly copied file, will instead indicate the directory where the file should be copied.  As an example, say we are currently in a directory that has two subdirectories: `dir1` and `dir2`.  Let's also say that there is a file in `dir` called `README.txt` that we want to copy into `dir2`.  To do this we would type
@@ -203,7 +203,7 @@ After using `cp` the file will still exist in the old location, and the newly na
 
 ---
 
-#### Task 7. Use `cp` to create a copy of the `lab0.txt` file you created for Task 6.  Name it `task7.txt`. 
+#### Task 7. Use `cp` to create a copy of the `lab1.txt` file you created for Task 6.  Name it `task7.txt`. 
 
 ---
 
@@ -216,11 +216,11 @@ mv file1.txt file2.txt
 
 ---
 
-#### Task 8. Rename the copy of lab0.txt that you created for Task 7.  Name it `task8.txt`. 
+#### Task 8. Rename the copy of lab1.txt that you created for Task 7.  Name it `task8.txt`. 
 
 ---
 
-When this is done, you should use the `ls` command to ensure that you only have two files: `lab0.txt` and `task8.txt` in your newly created folder.  
+When this is done, you should use the `ls` command to ensure that you only have two files: `lab1.txt` and `task8.txt` in your newly created folder.  
 
 ### Command 4. rm
 To delete a file, we use the `rm` command, which stands for *remove*.  It simply needs the path/name of the file to be deleted.  If you want to delete the `task8.txt` file that we created in Task 7 and renamed in Task 8, you would type the following
@@ -245,15 +245,15 @@ Be extremely careful when using the `rm` command, especially with some of its op
 
 ## Part 5.  Editing Files with nano
 
-The basic program that we will use to edit files in this class is `nano`.  (There are many others that can be used, you are welcome to use another if you prefer it).  To open a file (say `lab0.txt`) for editing you simply type 
+The basic program that we will use to edit files in this class is `nano`.  (There are many others that can be used, you are welcome to use another if you prefer it).  To open a file (say `lab1.txt`) for editing you simply type 
 ```
-nano lab0.txt
+nano lab1.txt
 ```
 If the file you give doesn't exist, then it will be created.  At this point the terminal window will display an editor.  You can navigate around with the arrow keys and type text as normal in the file. To save a file you hit CTRL-O and then type in the name of the file to save (it defaults to the current name of the file, in which case you can just hit ENTER).  You type CTRL-X to exit the program and go back to the terminal. Other commands are displayed at the bottom of the window. 
 
 ---
 
-#### Task 10. Use `nano` to edit the `lab0.txt` file you created in Task 7.  Type in some text, save it, and then exit back to the terminal. 
+#### Task 10. Use `nano` to edit the `lab1.txt` file you created in Task 7.  Type in some text, save it, and then exit back to the terminal. 
 ---
 
 To view the contents of a file from the command line, without being able to edit them you can use the `cat` command, which takes the file name/path as an argument.  To view the contents of a file name `file1.txt` you would type
@@ -263,28 +263,64 @@ cat file1.txt
 
 ---
 
-#### Task 11. Use `cat` to view the contents of `lab0.txt` from the terminal. 
+#### Task 11. Use `cat` to view the contents of `lab1.txt` from the terminal. 
 
 ---
 
-## Part 6. File System Tasks
 
-You now have the skills necessary to work with directories and files.  You will copy a compressed directory from our class directory, decompress/extract it, and then use the skills you have learned to answer questions about it and modify it. Make sure you execute the following commands from the directory for this class that you created in Task 4. 
+## Part 6. Remote Machine File Transfer
 
-### Step 1. Copy the compressed lab directory 
+A very common task when working on a remote machine is copying files to or from the remote machine.  In this class you will often have to copy the files containing the code you write for the projects to your machine so that you can turn it in for grading on Canvas.  We will introduce you now to the tools you can use to copy files from your machine to the remote (CS lab) machines, and later in Part 8 you will copy a modified file back to your machine so that you can turn it in on Canvas. 
+
+### Step 1. Download the compressed lab directory to your computer
+
+The link is in the Lab 1 assignment.  Download this file to your computer. Remember which folder it is in. 
+
+
+### Step 2. Copy the file to your remote machine. 
+
+The simplest tool to copy files to or from a remote machine is called `scp`, which stands for *secure copy*. This is used from the command line on your machine in a similar manner to `ssh`, and has a syntax similar to `cp`.  
+
+The syntax to copy a file to a remote machine (we will use the cs `schizo.cs.byu.edu` for this example) is: 
 
 ```
-cp /users/groups/cs224ta/lab0.tar.gz .
+scp file user@schizo.cs.byu.edu:
 ```
+
+The `file` is the path to the file that you desire to transfer.  `user` is your username on the remote machine, followed by the address of the remote machine (for the lab machines this can always be `schizo.cs.byu.edu`).  The `:` then begins the path on the remote machine to the location where the file should be stored.  The default, no path, in this case, is to place the file in the home directory with the same file name.  Like `ssh`, this command will prompt for your password on the remote machine.  
+
+Tip: Your machine does not know the file structure of the remote machine, so you cannot use things like tab completion to help complete more complicated paths to the remote file.  For this reason it is recommended to either always `scp` to your home directory, then move the file later after logging in over `ssh`, or to create a simply-named folder in your home directory that you can always `scp` to and from.  
+
+You cannot do `scp` from within your `ssh` session.  You can either exit out of your `ssh` session and then complete the `scp` command and then reconnect via `ssh`, or you can open up another terminal from your machine and complete the `scp` from there, without having to break and remake the `ssh` connection.  You can be logged in remotely to the CS lab machines multiple times simultaneously, so this is not a problem.  We recommend running the `scp` command in another terminal window to avoid having to disconnect and reconnect with `ssh`.
+
+To copy the file you downloaded, type the following into the terminal on your machine (again, not from within your `ssh` session!)  
+
+```
+scp lab1.tar.gz user@schizo.cs.byu.edu: 
+```
+
+`user` should be replaced with your CS username, and if you are not in the folder on your machine containing the downloaded file, you will need to include the relative path to it. 
+
+### Step 3. Confirm successful copy and move file
+
+Let's make sure that the copy was successful.  From within your `ssh` session, navigate to your home directory and type `ls`.  Does the file you copied over show up there?  If not, revisit the previous steps and make sure you don't have any typos in your command.  The TAs are eager to help if you feel stuck!
+
+Now let's move the file into the folder that you created for this class in Task 4.  Use `mv` to do this. 
 
 ### Step 2. Extract the directory
 
-```
-tar -xzvf lab0.tar.gz
-```
-This command will unzip the compressed file and you should be able to see a `Lab0` subdirectory after executing the command. 
+Now we will need to decompress the file, which contains a compressed directory system, so that you can use it for the next part of this lab. From within the folder containing the file, type:
 
-The following questions and tasks concern the `Lab0` directory and its contents that you just extracted. To begin, move into the `Lab0` directory.  You will find there three subdirectories (`f1`, `f2`, and `f3`) and one file (`src.c`). 
+```
+tar -xzvf lab1.tar.gz
+```
+This command will unzip the compressed file and you should be able to see a `Lab1` subdirectory after executing the command. 
+
+## Part 7. File Systems Tasks
+
+You now have the skills necessary to work with directories and files.  You will now use the skills you have learned to answer questions about the file folder that you just created on the remote machine. Make sure you execute the following commands from the directory for this class that you created in Task 4. 
+
+The following questions and tasks concern the `Lab1` directory and its contents that you just extracted. To begin, move into the `Lab1` directory.  You will find there three subdirectories (`f1`, `f2`, and `f3`) and one file (`src.c`). 
 
 ---
 
@@ -299,10 +335,10 @@ The following questions and tasks concern the `Lab0` directory and its contents 
 
 ---
 
-## Part 7. Editing, Compiling, and Running a C Program
+## Part 8. Editing, Compiling, and Running a C Program
 
 ### Step 1. Compiling a C program
-In the `Lab0` directory there is a file named `src.c`.  This is a simple C program.  To run this program it needs to be compiled into an executable program.  This is done using the `gcc` compiler.  To compile the program type the following at the command prompt
+In the `Lab1` directory there is a file named `src.c`.  This is a simple C program.  To run this program it needs to be compiled into an executable program.  This is done using the `gcc` compiler.  To compile the program type the following at the command prompt
 
 ```
 gcc src.c
@@ -323,7 +359,7 @@ You will now edit the `src.c` file to modify its behavior.  Hopefully the conten
 
 ---
 
-#### Task 12. Open the src.c file and modify it so that instead of each constant being set to 0, they are now set to new values as follows: first is set to 270 and second to 289.  Recompile the program and run it again.
+#### Task 12. Open the src.c file and modify it so that 1) it prints out your name instead of Cosmo's, and 2) instead of each constant being set to 0, they are now set to new values as follows: first is set to 270 and second to 289.  Recompile the program and run it again.
 
 ---
 
@@ -333,7 +369,18 @@ You will now edit the `src.c` file to modify its behavior.  Hopefully the conten
 
 ---
 
-## Part 8. Redirections, Input and Output
+### Step 3. Remote transfer the modified file
+
+Now that you have modified `src.c`, you will transfer it back to your machine so that you can turn it in on Canvas.  To do this we will follow the same `scp` procedure used in Part 6 above, just with a different argment order, since we are transferring from the remote machine. 
+First, make a copy of your modified `src.c` file in your home directory.  You can do this by typing `cp src.c ~` within the folder containing your modified `src.c` file.   Then, from another terminal on your machine, type: 
+
+```
+scp user@schizo.cs.byu.edu:src.c .
+```
+
+This will then prompt you for your password and then copy the file to your current folder on your machine.  If you run into any trouble, please contact a TA. You will turn in this `src.c` file on Canvas. 
+
+## Part 9. Redirections, Input and Output
 A final two commands are super useful for connecting the input and output of programs to files or other programs. 
 These are important to be introduced to, as you will use them in the labs. 
 
@@ -368,7 +415,7 @@ Try other patterns (instead of 'first') and see what grep outputs.  You will bec
 
 
 ## Conclusion
-Congratulations!  Having finished all of the above steps you just need to enter your answers to the lab questions into Canvas and then you are done with Lab 0!  Before you go, here are a few tips and tricks for working with the terminal that might prove helpful during the course of this class. 
+Congratulations!  Having finished all of the above steps you just need to enter your answers to the lab questions into Canvas and then you are done with Lab 1!  Before you go, here are a few tips and tricks for working with the terminal that might prove helpful during the course of this class. 
 
 #### Command Line Tips and Tricks
 
@@ -376,13 +423,13 @@ Congratulations!  Having finished all of the above steps you just need to enter 
 
  * You can use the up and down arrows from the command prompt to cycle through the previous commands that you have typed in.  This is especially useful for longer commands that take a long time to type in, or that are hard to remember.  If you have done the command recently, you can just push up and it will bring it back.  A common time this occurs is when you will repeatedly use `nano` to edit some code, then compile it, and then run it.  Since the code never works right the first time, you can press up three times and you are back to the `nano` command, then when you are done editing you can press up three times to be back to the compile command, and then up three times to the run program command.  
  * The command line supports tab completion of directory and file names.  When you are typing the name of a file you can press TAB and it will complete the name.  You need to have enough of the name typed in so that it knows what you want, but this often can save a lot of typing.
- * Another useful command is `tree` which will display the file and (sub)directory structure of the current folder.  Try this with the `Lab0` folder and see how easy it makes getting a sense for the structure of the file system. 
+ * Another useful command is `tree` which will display the file and (sub)directory structure of the current folder.  Try this with the `Lab1` folder and see how easy it makes getting a sense for the structure of the file system. 
  * The `man` command (for *manual*) will give you the details of how to use any command that we have talked about, and many more.  For example, just type `man ls` to get the manual for `ls` command.  This can be useful if you can't remember a specific option for a command.
  * To kill a runaway program from the command line, type CTRL-C.  This is super useful if you accidentally put an infinite loop or something in your code. 
  * The internet is full of tutorials and guides for using the command line.  There is no limit to what you can do with it, and most experienced programmers use it almost entirely to interact with their machines, because it is so powerful.  Feel free to explore and learn, but the set of commands related to the terminal that you will need for this class is fairly limited, and most are contained in this document.  Others will be introduced when necessary for subsequent labs or assignments.  
 
 
-#### Summary of concepts and commands from Lab 0
+#### Summary of concepts and commands from Lab 1
 
 ---
 
