@@ -1,7 +1,7 @@
 # Lab 3 - Printing in C
 
 This lab will give you practice printing out variables in different formats. 
-In addition, you will get to implement the algorithm for converting numbers from decimal to binary. 
+In addition, you will get to implement an algorithm for converting numbers from decimal to binary. 
 This lab is intended to prepare you to succesfully complete project 1. 
 
 For this lab, start with an empty `main` function and we will start filling out and modifying it as we go. 
