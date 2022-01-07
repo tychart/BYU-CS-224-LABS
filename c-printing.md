@@ -169,10 +169,10 @@ The output string should be `00001101`. Iteration `0` generated the least signif
 ---
 
 Test cases: 
-- 'p' : `01110000`
-- 'w' : `01110111`
-- 'o' : `01101111`
-- '!' : `00100001`
++ 'p' : `01110000`
++ 'w' : `01110111`
++ 'o' : `01101111`
++ '!' : `00100001`
 
 
 To pass off this lab show your code successfully printing out the binary of some `unsigned char` variables to a TA. 
