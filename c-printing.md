@@ -23,11 +23,11 @@ Our `unsigned char` can be initialized in many different ways.  Each of these wi
 These methods will all work for any whole number type (`char/short/int/long`)
 
 - Initialize to a whole decimal number: `unsigned char u = 51;`  
-  - In this case the decimal value will be encoded into bits stored in the variable 
+    - In this case the decimal value will be encoded into bits stored in the variable 
 - Initialize to a hexadecimal number: `unsigned char u = 0xa2;`
-  - In this case the hexadecimal value will be encoded into bits and stored in the variable
+    - In this case the hexadecimal value will be encoded into bits and stored in the variable
 - Initialize to an ASCII character: `unsigned char u = 'c';`
-  - In this case the ASCII character will be encoded into bits and stored in the variable.  To see the full ASCII encodings (the decimal and hexadecimal values for each character) check out <https://www.asciitable.com/>
+    - In this case the ASCII character will be encoded into bits and stored in the variable.  To see the full ASCII encodings (the decimal and hexadecimal values for each character) check out <https://www.asciitable.com/>
 
 Everything that happens to a variable, or that a variable is used for, depend only on the bits that make up that variable, not how they were initialized.  As an example, testing if two variables are the equal will check the bits that make up those variables.  
 
