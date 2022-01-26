@@ -17,6 +17,7 @@ There are many possible ways to write code that will accomplish this task.
 The following principles of code design, taken from the project 2 write-up, are relevant here: 
 
 > Good programing style uses functions to decompose the program into several simple computations, uses self-documenting names for each function and variable, and does not repeat code. These are principles and not absolutes. Use judgement in writing code remembering that making the code simple and readable is more important than making it clever and fast.
+>
 >Each function should do exactly one thing in general, and it should not take more than 5-25 lines of code to do that one thing. If a function is growing outside that range, then it needs to be decomposed into two or more functions. Learning to break a program into small pieces, each of which is easy to implement, is an important skill that is only learned through discipline and practice. 
 
 As an example, trying to complete the required tasks all with a single `main` function is almost certain to break these rules. 
@@ -29,8 +30,8 @@ This will enable you to utilize the provided function in their intended way to a
 We can first look at how we can decompose the BMP file itself.  
 The previous image shows that we can think of the entire BMP file as being filled with a few things.  
 
-1) Header Bytes - these contain important values that you will need to extract (you will get to practice this in the next task)
-2) Image Bytes - these bytes contain the actual bytes which specify what the image is. 
+1. Header Bytes - these contain important values that you will need to extract (you will get to practice this in the next task)
+2. Image Bytes - these bytes contain the actual bytes which specify what the image is. 
 
 #### Image Bytes
 
@@ -40,8 +41,8 @@ What is contained inside the image bytes? Well, lets peek inside!
 
 The image bytes contain two things: 
 
-1) The rows of the image
-2) Bits of padding between rows (to ensure that each new row starts at an offset that is a multiple of 4)
+1. The rows of the image
+2. Bits of padding between rows (to ensure that each new row starts at an offset that is a multiple of 4)
 
 #### Rows
 
@@ -94,8 +95,8 @@ This code first initializes 20 bytes of memory using a `char` array.
 We then get an `unsigned char *` pointer `start` which points to the beginning of the array, just like you will have an `unsigned char *` pointer to the beginning of the bytes of your image file in project 2 (the pointer is called `bmpFileAsBytes`). 
 
 Your task is to extract two values from these 20 bytes of memory, as follows. 
-1) An `int` from the 4 bytes of memory that start at byte 7 from `start`. 
-2) A `short` from the 2 bytes of memory that start at byte 15. 
+1. An `int` from the 4 bytes of memory that start at byte 7 from `start`. 
+2. A `short` from the 2 bytes of memory that start at byte 15. 
 
 For each of these you only need to change one line of code, indicated in the starter code below. 
 You should only reference `start` in your line of code.
