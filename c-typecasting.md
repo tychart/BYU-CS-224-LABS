@@ -5,13 +5,13 @@ This lab is intended to prepare you to succesfully complete project 2.
 
 ## Decomposing the Project 2 Task
 To begin this lab we want to make sure you understand how project 2 relates to the provided starter code. 
-Let's start by looking at the overall structure of a BMP file. 
+Let's start by looking at the overall structure of a BMP file (All memory images in this lab document will start with the lowest address in the top left, and addresses increasing as we move to the right and down).
 
 ![Overall BMP file structure]( bmpFileFormat.jpg )
 
 Your tasks in project 2 are to 
-  1) grab relevant values from the header file (width & height of image, offset of the image bytes from the beginning of the file) (*see next task*) 
-  2) use those to iterate over all the bytes of the image, modifying them according to the specified filter. 
+  1. grab relevant values from the header file (width & height of image, offset of the image bytes from the beginning of the file) (*see next task*) 
+  2. use those to iterate over all the bytes of the image, modifying them according to the specified filter. 
 
 There are many possible ways to write code that will accomplish this task. 
 The following principles of code design, taken from the project 2 write-up, are relevant here: 
@@ -69,7 +69,7 @@ These values can be anything from 0 (0x00) to 255 (0xff).
 In the starter code, you are provided with several functions, each of which maps nicely onto one of the components of the BMP file that we just covered.  These are: 
 
   1. `void parseHeaderAndApplyFilter(unsigned char* bmpFileAsBytes, int isGrayscale)`: This function is called from main and is passed a pointer to the beginning of the BMP file (`bmpFileAsBytes`) as well as which filter will be applied. It's job is to grab the header values and then call another function to have it actually process the image bytes (called `pixelArray` in the code).
-  2. `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`: This function is passed a pointer to the beginning of the image bytes/pixelArray.  Its job is to loop over the rows within the image bytes and pass a pointer to the begining of each row to, you guessed it, another function which will process that row.  To correctly compute the address where the next row starts, the padding (see next lab task) must be taken into account. 
+  2. `void applyFilterToPixelArray(unsigned char* pixelArray, int width, int height, int isGrayscale)`: This function is passed a pointer to the beginning of the image bytes/pixelArray.  Its job is to loop over the rows within the image bytes and pass a pointer to the begining of each row to, you guessed it, another function which will process that row.  To correctly compute the address where the next row starts, the padding (see final lab task) must be taken into account. 
   3. `void applyFilterToRow(unsigned char* row, int width, int isGrayscale)`: This function is called with a pointer to a row in the image.  Its job is to iterate over each pixel in that row and call *another* function to process that pixel.
   4. `void applyFilterToPixel(unsigned char* pixel, int isGrayscale)`: This function is called with a pointer to the first byte of an individual pixel.  Its job is to call the appropriate filter function, given what the user specified (stored in `isGrayscale`). 
   5. `void applyThresholdToPixel(unsigned char* pixel)` or `applyGrayscaleToPixel(unsigned char* pixel)`: Now we finally get to the image processing!  The job of these functions is to actually look at the bytes of the the pixel (Blue/Green/Red) values and overwrite them with their new values, according to how each filter works. 
