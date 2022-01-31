@@ -10,8 +10,9 @@ Let's start by looking at the overall structure of a BMP file (All memory images
 ![Overall BMP file structure]( bmpFileFormat.jpg )
 
 Your tasks in project 2 are to 
-  1. grab relevant values from the header file (width & height of image, offset of the image bytes from the beginning of the file) (*see next task*) 
-  2. use those to iterate over all the bytes of the image, modifying them according to the specified filter. 
+  
+1. grab relevant values from the header file (width & height of image, offset of the image bytes from the beginning of the file) (*see next task*) 
+2. use those to iterate over all the bytes of the image, modifying them according to the specified filter. 
 
 There are many possible ways to write code that will accomplish this task. 
 The following principles of code design, taken from the project 2 write-up, are relevant here: 
