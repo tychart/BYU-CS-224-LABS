@@ -136,7 +136,7 @@ As the project description specifies, in the array of pixels you will encounter 
 Since each pixel takes up 3 bytes of memory, sometimes there is some *padding*, or unused memory, that is skipped over before the bytes of the next row of pixels starts. 
 
 In this part of the lab you will determine how to compute the number of padding bytes correctly. 
-This will be useful for you as you more forward on the project. 
+This will be useful for you as you move forward on the project. 
 
 You are told the number of pixels in each row (`width` of the image).  
 You know that each pixel takes up 3 bytes. 
