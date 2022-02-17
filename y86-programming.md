@@ -38,7 +38,7 @@ int main()
 Another topic that is important for project 3 is the distinction between *pass by reference* and *pass by value*.  Both of these refer to how arguments are passed into a function.  Let's look at the differences. 
 
 + **Pass by value** - When arguments are passed in by value, that means that the function has access to a copy of the argument, and any changes made to it will not change the argument in the calling function.  In C this (generally) occurs when we pass non-pointer types into functions, like `chars` or `ints` etc. 
-+ **Pass by references** - When arguments are passed in by reference, this means that the function can access the actual argument, not just a copy of it. This means any modification made to the argument through that reference will change the argument for the calling function as well.  In C this is generally done by passing a *pointer* to a variable into a function, instead of the variable itself.  By dereferencing this pointer, the original argument can be modified.  This is frequently used in C to essentially *return* multiple values from a function (by changing an argument that is passed in), whereas the normal mechanism (return value of the function) only allows one value to be returned. 
++ **Pass by references** - When arguments are passed in by reference, this means that the function can access the actual argument, not just a copy of it. This means any modification made to the argument through that reference will change the argument for the calling function as well.  In C this is generally done by passing a *pointer* to a variable into a function, instead of the variable itself.  By dereferencing this pointer, the original argument can be modified.  This is frequently used in C to essentially *return* multiple values from a function (by changing the value of an argument that is passed in), whereas the normal mechanism (return value of the function) only allows one value to be returned. 
 
 Let's see some examples! In the following code we have two functions.  The argument to the first is passed in by reference, while arguments to the second are passed by value.  Your task is to modify the internals of the first function (`setValueTo200`) so that it will set the argument to the value 200, while in the second function (`add24AndPrint`) we will add 24 to the value and print it out. Pass off this task by showing your TA that you have it working correctly. 
 
@@ -71,7 +71,7 @@ int main()
     return 0;
 }
 ```
-In project 3, all of the signal variables are defined in the main function.  When a stage needs to *set* a signal variable, it is passed in by reference.  The modified variable is then later passed *by value* to other stages, so that it can be used there.  But these other stages do not modify the value. 
+In project 3, all of the signal variables are defined in the `stepMachine` function.  When a stage needs to *set* a signal variable, it is passed in by reference.  The modified variable is then later passed *by value* to other stages, so that it can be used there.  But these other stages do not modify the value. 
 
 ## Computational Tables
 
