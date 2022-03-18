@@ -1,6 +1,6 @@
 # Lab 12 - Debugging Bombs
 
-This lab will introduce you to the debugger *gdb* that you will use for the Bomb Project and the Attack Project. 
+This lab will introduce you to the debugger `gdb` that you will use for the Bomb Project and the Attack Project. 
 Both of these projects can only be done on specific department linux lab machines. 
 You must do this lab on the cs department machines as well. 
 This lab is intended to prepare you to successfully complete the final two projects in this course. 
