@@ -141,3 +141,6 @@ for quit.  You will exit `gdb`
 You will use these commands, and potentially others, to understand the operation of the bomb executable during the Bomb project.  
 One tip: if you are worried about the bomb exploding, first find a breakpoint that will be reached before the bomb explodes and set it at the very beginning of `gdb` before you run the program.  Then the program will stop at that point and you can exit `gdb` *without exploding the bomb*!  Good luck with your bomb defusing!
 
+## Lab Pass Off
+
+Pass off this lab by showing a TA the answer to the questions throughout the lab. 
