@@ -108,7 +108,7 @@ si
 
 Repeat this until the first `add` instruction is executed inside the `fun` function. The `si` command will step *into* functions, whereas the `ni` command will also step a single assembly instruction, but will step *over* function calls. 
 
-What value is not in %rax? 
+What value is put in %rax? 
 What value is on top of the stack? 
 
 9. Now let's continue to run the program.  To finish the function we are in, type
