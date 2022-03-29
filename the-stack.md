@@ -55,7 +55,7 @@ We can now set up our attack input, laying it out in hexadecimal.  We will have 
 
 ### Question 4 - What is the hexadecimal representation of our attack input for this second attack? 
 
-In the attack project, you will take these hexadecimal representations and pass them into the `hex2raw` program, saving the output in a file that you will then pass into the programs that you are attacking. 
+In the attack project, you will take hexadecimal representations (like these) that you will create based on the tasks in the project, and pass them into the `hex2raw` program, saving the output in a file that you will then pass into the programs that you are attacking. 
 
 Check your solutions to the questions.  Once you get the right answer and understand why, you are ready to move onto the Attack Project!  To pass off this lab, simply answer the question in the lab quiz. 
 
@@ -81,7 +81,7 @@ The second attack input in hex is as follows:
 
 `ff ff ff ff ff ff ff ff //Filler bytes` <br>
 `3d 24 72 00 00 00 00 00 // Address of gadget 1(overwrites return address)` <br>
-`22 42 24 00 00 00 00 00 // Value for popping` <br>
+`24 42 22 00 00 00 00 00 // Value for popping` <br>
 `4c 24 72 00 00 00 00 00 // Address of gadget 2` <br>
 `11 22 33 44 55 66 77 88 // Address of target function` <br>
 
