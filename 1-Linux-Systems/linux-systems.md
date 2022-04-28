@@ -170,13 +170,13 @@ We will now introduce the commands that allow us to work with files through the 
 
 ## Command 1. git
 
-To download the starter code of future assignments we will be using a program called `git`. Git is a form of version control that allows for clean and effcient tracking of file edits. For this class we'll just be using it to download code from a remote repository. The `clone` subcommand will clone or copy an entire remote directory and write it to your local machine. Inside your `cs224` folder type the following command:
+To download the starter code for future assignments we will be using a program called `git`. Git is a form of version control that allows for clean and effcient tracking of file edits. However, for this class we'll just be using it to download code from a remote repository. The `clone` subcommand will clone or copy an entire remote directory and write it to your local machine. Inside your `cs224` folder type the following command:
 
 ```
 git clone https://bitbucket.org/byucs224/byu-cs-224-labs.git
 ```
 
-Once that downloads you'll also want to clone the project starter code, you can do that with the following command:
+Once that downloads you'll also want to clone the project starter code, you can do that with the following command (also inside `cs224`):
 
 ```
 git clone https://bitbucket.org/byucs224/byu-cs-224-projects.git
