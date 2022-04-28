@@ -157,7 +157,6 @@ If you type `cd` and press enter (without an argument) it will return you to you
 #### Task 5. Use `cd` to move into the directory you created for Task 4.  Then use `cd ..` to move back into your home directory.
 
 ---
-
 ---
 
   * **Lab Question 2 (5 points)**: What is the full path to your new directory? (hint: use `pwd` after you have moved into the directory)
@@ -167,7 +166,27 @@ If you type `cd` and press enter (without an argument) it will return you to you
 ## Part 4. Working with Files
 We will now introduce the commands that allow us to work with files through the terminal. 
 
-### Command 1. touch
+---
+
+## Command 1. git
+
+To download the starter code of future assignments we will be using a program called `git`. Git is a form of version control that allows for clean and effcient tracking of file edits. For this class we'll just be using it to download code from a remote repository. The `clone` subcommand will clone or copy an entire remote directory and write it to your local machine. Inside your `cs224` folder type the following command:
+
+```
+git clone https://bitbucket.org/byucs224/byu-cs-224-labs.git
+```
+
+Once that downloads you'll also want to clone the project starter code, you can do that with the following command:
+
+```
+git clone https://bitbucket.org/byucs224/byu-cs-224-projects.git
+```
+
+You should now have both the `byu-cs-224-labs` and `byu-cs-224-projects` directories in your `cs224` directory.  `cd` inside and `ls` to check out the contents. You'll find a `1-Linux-Systems` folder already created for you inside the labs folder, work in this for the remainder of the lab.
+
+---
+
+### Command 2. touch
 
 To create an empty file of a specific name in the current directory, we will use the command `touch`.  This command requires the name of the file to be created/touched.  If the file already exists, then the file will not be changed, except for the time stamp that indicates when it was modified.  This is useful in many situations. If the file does not exist, then `touch` will create it.  As an example, to create a file called `lab0.txt` you would type
 ```
@@ -181,7 +200,7 @@ in the directory where you want the file to be created.
 
 ---
 
-### Command 2. cp
+### Command 3. cp
 Often we want to copy a file from some location where it already exists to our current location.  To do this we use the `cp` command, which stands for *copy*.  `cp` needs you to specify the name/path of the file to be copied, as well as the path/name of the new copied file that it will create.  To create a copy of our file called `lab1.txt`, and name the new copied file `lab01.txt`, you would type
 ```
 cp lab1.txt lab01.txt
@@ -207,7 +226,7 @@ After using `cp` the file will still exist in the old location, and the newly na
 
 ---
 
-### Command 3. mv
+### Command 4. mv
 If we want to move a file to another location, so that it no longer is at the previous location, we use the `mv` command, which stands for *move*.  This command is used in exactly the same way as the `cp` command.  You first give the path to the original file, then the path to the new location for the file.  You can rename the file when you move it, or you can leave the name the same.  This command is often used to rename a file without changing the directory that it is in.  To rename a file `file1.txt` in the current directory to have the new name `file2.txt` the following would be typed. 
 
 ```
@@ -222,7 +241,7 @@ mv file1.txt file2.txt
 
 When this is done, you should use the `ls` command to ensure that you only have two files: `lab1.txt` and `task8.txt` in your newly created folder.  
 
-### Command 4. rm
+### Command 5. rm
 To delete a file, we use the `rm` command, which stands for *remove*.  It simply needs the path/name of the file to be deleted.  If you want to delete the `task8.txt` file that we created in Task 7 and renamed in Task 8, you would type the following
 
 ```

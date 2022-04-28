@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>linux-systems.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/*
+
+Atom One Dark With support for ReasonML by Gidi Morris, based off work by Daniel Gamage
+
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+.hljs-keyword, .hljs-operator {
+  color: #F92672;
+}
+.hljs-pattern-match {
+  color: #F92672;
+}
+.hljs-pattern-match .hljs-constructor {
+  color: #61aeee;
+}
+.hljs-function {
+  color: #61aeee;
+}
+.hljs-function .hljs-params {
+  color: #A6E22E;
+}
+.hljs-function .hljs-params .hljs-typing {
+  color: #FD971F;
+}
+.hljs-module-access .hljs-module {
+  color: #7e57c2;
+}
+.hljs-constructor {
+  color: #e2b93d;
+}
+.hljs-constructor .hljs-string {
+  color: #9CCC65;
+}
+.hljs-comment, .hljs-quote {
+  color: #b18eb1;
+  font-style: italic;
+}
+.hljs-doctag, .hljs-formula {
+  color: #c678dd;
+}
+.hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst {
+  color: #e06c75;
+}
+.hljs-literal {
+  color: #56b6c2;
+}
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta-string {
+  color: #98c379;
+}
+.hljs-built_in, .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+.hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number {
+  color: #d19a66;
+}
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title {
+  color: #61aeee;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lab-1---linux-systems">Lab 1 - Linux Systems</h1>
+<p>This lab will introduce you to the basics of the Linux systems we will be using this semester.
+Every student is required to use the departments linux lab machines for <strong>all projects</strong> for this class.
+This can be done either by physically being in the labs and logging onto the machines, or by using another computer to remotely log into the machines.  Since knowledge of how to remotely access machines is critical for this class and for CS more broadly, this lab will teach you how to remotely access the CS lab machines.  For future CS projects you are welcome to use the labs in person.
+Tasks that need to be performed to complete this lab are indicated as follows:</p>
+<hr>
+<h4 id="task-what-you-need-to-do">Task: What you need to do.</h4>
+<hr>
+<p>Tasks are things that must be performed before moving on, and that will ensure you are familiar with all the content of the lab that is important.</p>
+<p>Lab questions that you will need to record and submit your answers for are indicated as</p>
+<hr>
+<ul>
+<li><strong>Lab Question</strong>: This you need to answer.</li>
+</ul>
+<hr>
+<p>You will submit answers to lab questions on Canvas.</p>
+<h3 id="the-command-line">The Command Line</h3>
+<p>In this class we will use a terminal to interact with our computer. A terminal is a text-based interface, where the user types commands which the computer then executes.  The terminal is also referred to as the console, command line, command prompt, or shell.</p>
+<p>You might be more familiar with Graphical User Interfaces (GUI) for computers, which visually show you information and require you to click on parts of the screen to interact with the computer.  A Command Line Interface (CLI) is more primitive and more powerful than a GUI.</p>
+<p>In the remainder of this lab description, instructions written like:</p>
+<pre class="hljs"><code><div>instruction
+</div></code></pre>
+<p>Indicate that you should type <code>instruction</code> on the command line and press enter.  The instruction will then be executed by the machine you are logged into.</p>
+<h2 id="part-1-access-terminal-on-your-machine">Part 1. Access Terminal on your machine</h2>
+<p>Open a terminal window on your machine. How to do this will depend on your operating system. Each will display a window with some sort of prompt (line with your username and current folder and ending with a <code>&gt;</code> or <code>$</code>.  This is the command prompt, where you will type in your commands.</p>
+<h3 id="windows">Windows</h3>
+<p>Go to the search window in task bar and type <code>cmd</code>. This will bring up the <em>Command Prompt</em> app, which you then should launch.</p>
+<h3 id="macs-and-linux">Macs and Linux</h3>
+<p>You will need to find and launch the Terminal application.  It is sometimes in the <em>Utilities</em> folder on Macs</p>
+<p>Once you have located and run the terminal application you will use it to run the commands that are described in what follows.</p>
+<hr>
+<h4 id="task-1-find-and-run-the-terminal-application-on-your-machine">Task 1: Find and run the terminal application on your machine.</h4>
+<hr>
+<h2 id="part-2-remotely-log-onto-the-department-lab-machines">Part 2. Remotely log onto the department lab machines.</h2>
+<p>We will now cover the process that allows us to remotely log into the CS department lab machines.</p>
+<h3 id="step-1-secure-shell-ssh">Step 1. Secure Shell (SSH)</h3>
+<p>To remotely log into the department machines, we will use a program called <code>ssh</code>.  This stands for <em>Secure Shell</em> or <em>Secure Socket Shell</em>.  This program allows us to be on the terminal of another computer from a terminal on another computer.</p>
+<p>To run the <code>ssh</code> program, you will need to type the following at the command prompt:</p>
+<pre class="hljs"><code><div>ssh user@schizo.cs.byu.edu
+</div></code></pre>
+<p>where <code>user</code> should be replaced by your cs id / user name.  This will connect to the schizo machine in the department, which will in turn connect you to another lab machine which you will work on. If you ever want to connect directly to a specific lab machine, you can replace <code>schizo</code> with the name of that machine in the ssh command.
+It rarely matters exactly which machine you are connected to, and all CS machines have access to the same file system, so all of your files and folders will be exactly the same on any CS machine.
+You will be prompted to enter your CS account password. You will then be asked if you want to trust the certificate of the <code>schizo</code> machine (since this is your first time connecting).  You can type <code>Y</code> or <code>Yes</code> and then press enter.</p>
+<p>If you have trouble with your CS account, look first at https://docs.cs.byu.edu/doku.php?id=setting-up-your-account-with-the-cs-authentication-system for help.  If that does not work, then submit a ticket via the ticket system at https://ticket.cs.byu.edu which is the primary support point for the open labs (preferred). The System Administrators may be contacted in person at 1140 TMCB or at system@cs.byu.edu if needed.</p>
+<p>Once authenticated, you will see a welcome message from the department machine and then another command prompt, which will display <code>user@machine:~$</code>, where <code>user</code> will be replaced by your cs user name and <code>machine</code> will be the name of the machine that you get connected to.</p>
+<p>You are now remotely logged into a lab machine and can type commands at the terminal (the prompt you are now looking at) which will be executed on the remote machine.</p>
+<hr>
+<h4 id="task-2-ssh-into-a-lab-machines">Task 2: ssh into a lab machines</h4>
+<hr>
+<h4 id="note-for-windows-users">Note for Windows Users</h4>
+<p>Some older versions of Windows do not come with <code>ssh</code> natively available from within the <em>Command Prompt</em> app.  If you type the <code>ssh</code> command above and you get an error message indicating that it doesn't know what <code>ssh</code> is, then you probably need to install a separate program that supports ssh.  One option is PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/).  Others also exist.  You will need to install PuTTY or whatever other program you choose and then follow its instructions to use <code>ssh</code> to connect to the lab machines.  If you run into problems with this step, please contact a TA immediately so that we can help you get it resolved and so you can complete the lab.</p>
+<h2 id="part-3-navigating-the-directory-system">Part 3. Navigating the Directory System</h2>
+<p>We will now learn about the commands that are used to navigate the directory system.</p>
+<h3 id="command-1-pwd">Command 1. pwd</h3>
+<p>When operating from the terminal, you are always <em>in</em> a directory on the machine.  A directory, also sometimes called a folder, is a location on the hard disk of the machine that can contain files or other (sub)directories.  Usually you can tell which directory you are in by the command prompt that is shown, but there is also a command that will give you this information directly.  This is a very useful command to find out where you are (the <em>path</em> to the current directory).  The command is called <code>pwd</code>, which stands  for <em>print working directory</em>.  To run this you simply type:</p>
+<pre class="hljs"><code><div>pwd
+</div></code></pre>
+<p>and the current directory will be displayed. By default the terminal will open in your home directory.</p>
+<hr>
+<ul>
+<li><strong>Lab Question 1 (5 points)</strong>: What is the path to your home directory on a lab machine?  To answer this, use the <code>pwd</code> command in the terminal window after you first (remotely) log in.</li>
+</ul>
+<hr>
+<p>Terminal opens by default in your home directory.</p>
+<h3 id="command-2-ls">Command 2. ls</h3>
+<p>It is rarely any good to be in a directory without being able to see what is in that directory.  The command to do this is <code>ls</code>, which stands for <em>list</em>.  This command will list out all the contents of the current directory.  To run this command you simply type</p>
+<pre class="hljs"><code><div>ls
+</div></code></pre>
+<p>There are command line options that you can use with <code>ls</code>.  For example, typing <code>ls -l</code> (<em>list long</em>) will show more details about each file, including file size, modification date, and type. This is often useful.</p>
+<hr>
+<h4 id="task-3-use-ls-to-find-out-what-is-in-your-home-directory">Task 3: Use <code>ls</code> to find out what is in your home directory.</h4>
+<hr>
+<h3 id="command-3-mkdir">Command 3. mkdir</h3>
+<p>To modify the directory system we need to be able to create new (sub)directories and files within the current folder.  We will first focus on directories and then discuss files later.  The command to create a new directory within the current directory is <code>mkdir</code>, which stands for <em>make directory</em>.  This command requires another argument, which is the name of the directory that we want to make.</p>
+<p>We will use the <code>mkdir</code> command to create a directory for you to store all of your work for this class. You might want to call your folder <code>CS224</code> or <code>cs224</code> or <code>cs-224</code>, etc.  The choice is yours!  To create a folder called <code>cs224</code> you would type</p>
+<pre class="hljs"><code><div>mkdir cs224
+</div></code></pre>
+<hr>
+<h4 id="task-4-use-mkdir-to-create-a-directory-to-contain-your-work-for-this-class">Task 4: Use <code>mkdir</code> to create a directory to contain your work for this class.</h4>
+<hr>
+<p>After creating your directory, you should use <code>ls</code> to display the contents of the directory and confirm that your new directory in fact was created.  You are encouraged to use <code>ls</code> to confirm that tasks have been completely correctly in the remainder of this lab.</p>
+<h3 id="command-4-cd">Command 4. cd</h3>
+<p>To change the terminal's current directory we use the <code>cd</code> command, which stands for <em>change directory</em>.  This command also requires you to type the name of the directory you would like to change to.  For example, if there is a subdirectory inside the current directory called <code>cs224</code>, you would type the following command to change/move to that directory.</p>
+<pre class="hljs"><code><div>cd cs224
+</div></code></pre>
+<p>To move out of a subdirectory to the directory that contains it, you type two dots for the directory name.  So, if you had moved into the <code>cs224</code> directory, you would type the following to change back/out/up to your home directory.</p>
+<pre class="hljs"><code><div>cd ..
+</div></code></pre>
+<p>If you type <code>cd</code> and press enter (without an argument) it will return you to your home directory.</p>
+<hr>
+<h4 id="task-5-use-cd-to-move-into-the-directory-you-created-for-task-4-then-use-cd--to-move-back-into-your-home-directory">Task 5. Use <code>cd</code> to move into the directory you created for Task 4.  Then use <code>cd ..</code> to move back into your home directory.</h4>
+<hr>
+<hr>
+<ul>
+<li><strong>Lab Question 2 (5 points)</strong>: What is the full path to your new directory? (hint: use <code>pwd</code> after you have moved into the directory)</li>
+</ul>
+<hr>
+<h2 id="part-4-working-with-files">Part 4. Working with Files</h2>
+<p>We will now introduce the commands that allow us to work with files through the terminal.</p>
+<hr>
+<h2 id="command-1-git">Command 1. git</h2>
+<p>To download the starter code of future assignments we will be using a program called <code>git</code>. Git is a form of version control that allows for clean and effcient tracking of file edits. For this class we'll just be using it to download code from a remote repository. The <code>clone</code> subcommand will clone or copy an entire remote directory and write it to your local machine. Inside your <code>cs224</code> folder type the following command:</p>
+<pre class="hljs"><code><div>git clone https://bitbucket.org/byucs224/byu-cs-224-labs.git
+</div></code></pre>
+<p>Once that downloads you'll also want to clone the project starter code, you can do that with the following command:</p>
+<pre class="hljs"><code><div>git clone https://bitbucket.org/byucs224/byu-cs-224-projects.git
+</div></code></pre>
+<p>You should now have both the <code>byu-cs-224-labs</code> and <code>byu-cs-224-projects</code> directories in your <code>cs224</code> directory.  <code>cd</code> inside and <code>ls</code> to check out the contents. You'll find a <code>1-Linux-Systems</code> folder already created for you inside the labs folder, work in this for the remainder of the lab.</p>
+<hr>
+<h3 id="command-2-touch">Command 2. touch</h3>
+<p>To create an empty file of a specific name in the current directory, we will use the command <code>touch</code>.  This command requires the name of the file to be created/touched.  If the file already exists, then the file will not be changed, except for the time stamp that indicates when it was modified.  This is useful in many situations. If the file does not exist, then <code>touch</code> will create it.  As an example, to create a file called <code>lab0.txt</code> you would type</p>
+<pre class="hljs"><code><div>touch lab1.txt
+</div></code></pre>
+<p>in the directory where you want the file to be created.</p>
+<hr>
+<h4 id="task-6-use-touch-to-create-a-file-called-lab1txt-in-the-directory-for-this-class-that-you-created-for-task-4">Task 6. Use <code>touch</code> to create a file called <code>lab1.txt</code> in the directory for this class that you created for Task 4.</h4>
+<hr>
+<h3 id="command-3-cp">Command 3. cp</h3>
+<p>Often we want to copy a file from some location where it already exists to our current location.  To do this we use the <code>cp</code> command, which stands for <em>copy</em>.  <code>cp</code> needs you to specify the name/path of the file to be copied, as well as the path/name of the new copied file that it will create.  To create a copy of our file called <code>lab1.txt</code>, and name the new copied file <code>lab01.txt</code>, you would type</p>
+<pre class="hljs"><code><div>cp lab1.txt lab01.txt
+</div></code></pre>
+<p>Often we are copying a file from another directory to another directory, and we want the file to keep the same name.  In this case the second argument, where before we had the name of the newly copied file, will instead indicate the directory where the file should be copied.  As an example, say we are currently in a directory that has two subdirectories: <code>dir1</code> and <code>dir2</code>.  Let's also say that there is a file in <code>dir</code> called <code>README.txt</code> that we want to copy into <code>dir2</code>.  To do this we would type</p>
+<pre class="hljs"><code><div>cp dir1/README.txt dir2/
+</div></code></pre>
+<p>To copy that same file into the current directory and keep the file's current name, we use single period <code>.</code> to indicate the location.  This would be done as follows</p>
+<pre class="hljs"><code><div>cp dir1/README.txt .
+</div></code></pre>
+<p>After using <code>cp</code> the file will still exist in the old location, and the newly named and created copy will exist in the new location.</p>
+<hr>
+<h4 id="task-7-use-cp-to-create-a-copy-of-the-lab1txt-file-you-created-for-task-6-name-it-task7txt">Task 7. Use <code>cp</code> to create a copy of the <code>lab1.txt</code> file you created for Task 6.  Name it <code>task7.txt</code>.</h4>
+<hr>
+<h3 id="command-4-mv">Command 4. mv</h3>
+<p>If we want to move a file to another location, so that it no longer is at the previous location, we use the <code>mv</code> command, which stands for <em>move</em>.  This command is used in exactly the same way as the <code>cp</code> command.  You first give the path to the original file, then the path to the new location for the file.  You can rename the file when you move it, or you can leave the name the same.  This command is often used to rename a file without changing the directory that it is in.  To rename a file <code>file1.txt</code> in the current directory to have the new name <code>file2.txt</code> the following would be typed.</p>
+<pre class="hljs"><code><div>mv file1.txt file2.txt
+</div></code></pre>
+<hr>
+<h4 id="task-8-rename-the-copy-of-lab1txt-that-you-created-for-task-7-name-it-task8txt">Task 8. Rename the copy of lab1.txt that you created for Task 7.  Name it <code>task8.txt</code>.</h4>
+<hr>
+<p>When this is done, you should use the <code>ls</code> command to ensure that you only have two files: <code>lab1.txt</code> and <code>task8.txt</code> in your newly created folder.</p>
+<h3 id="command-5-rm">Command 5. rm</h3>
+<p>To delete a file, we use the <code>rm</code> command, which stands for <em>remove</em>.  It simply needs the path/name of the file to be deleted.  If you want to delete the <code>task8.txt</code> file that we created in Task 7 and renamed in Task 8, you would type the following</p>
+<pre class="hljs"><code><div>rm task8.txt
+</div></code></pre>
+<hr>
+<h4 id="task-9-delete-the-task8txt-file-that-you-worked-with-in-tasks-7-and-8">Task 9. Delete the <code>task8.txt</code> file that you worked with in Tasks 7 and 8.</h4>
+<hr>
+<p>Use the <code>ls</code> command to confirm that it is gone.</p>
+<p>The <code>rm</code> command can also be used to delete an empty directory, but for that requires the <code>-d</code> option. If the directory is not empty, the <code>-r</code> option (for <em>recursive</em>) will also remove the directory's contents.  To remove a directory named <code>dir1</code> and its contents, you would type <code>rm -r dir1</code>.</p>
+<h4 id="note">Note</h4>
+<p>Be extremely careful when using the <code>rm</code> command, especially with some of its options.  Once something is deleted, it is gone forever.  It is possible by being not careful to delete all of your files or your entire operating system with a single incorrect command.  Just be careful!</p>
+<h2 id="part-5-editing-files-with-nano">Part 5.  Editing Files with nano</h2>
+<p>The basic program that we will use to edit files in this class is <code>nano</code>.  (There are many others that can be used, you are welcome to use another if you prefer it).  To open a file (say <code>lab1.txt</code>) for editing you simply type</p>
+<pre class="hljs"><code><div>nano lab1.txt
+</div></code></pre>
+<p>If the file you give doesn't exist, then it will be created.  At this point the terminal window will display an editor.  You can navigate around with the arrow keys and type text as normal in the file. To save a file you hit CTRL-O and then type in the name of the file to save (it defaults to the current name of the file, in which case you can just hit ENTER).  You type CTRL-X to exit the program and go back to the terminal. Other commands are displayed at the bottom of the window.</p>
+<hr>
+<h4 id="task-10-use-nano-to-edit-the-lab1txt-file-you-created-in-task-7-type-in-some-text-save-it-and-then-exit-back-to-the-terminal">Task 10. Use <code>nano</code> to edit the <code>lab1.txt</code> file you created in Task 7.  Type in some text, save it, and then exit back to the terminal.</h4>
+<hr>
+<p>To view the contents of a file from the command line, without being able to edit them you can use the <code>cat</code> command, which takes the file name/path as an argument.  To view the contents of a file name <code>file1.txt</code> you would type</p>
+<pre class="hljs"><code><div>cat file1.txt
+</div></code></pre>
+<hr>
+<h4 id="task-11-use-cat-to-view-the-contents-of-lab1txt-from-the-terminal">Task 11. Use <code>cat</code> to view the contents of <code>lab1.txt</code> from the terminal.</h4>
+<hr>
+<h2 id="part-6-remote-machine-file-transfer">Part 6. Remote Machine File Transfer</h2>
+<p>A very common task when working on a remote machine is copying files to or from the remote machine.  In this class you will often have to copy the files containing the code you write for the projects to your machine so that you can turn it in for grading on Canvas.  We will introduce you now to the tools you can use to copy files from your machine to the remote (CS lab) machines, and later in Part 8 you will copy a modified file back to your machine so that you can turn it in on Canvas.</p>
+<h3 id="step-1-download-the-compressed-lab-directory-to-your-computer">Step 1. Download the compressed lab directory to your computer</h3>
+<p>The link is in the Lab 1 assignment.  Download this file to your computer. Remember which folder it is in.</p>
+<h3 id="step-2-copy-the-file-to-your-remote-machine">Step 2. Copy the file to your remote machine.</h3>
+<p>The simplest tool to copy files to or from a remote machine is called <code>scp</code>, which stands for <em>secure copy</em>. This is used from the command line on your machine in a similar manner to <code>ssh</code>, and has a syntax similar to <code>cp</code>.</p>
+<p>The syntax to copy a file to a remote machine (we will use the cs <code>schizo.cs.byu.edu</code> for this example) is:</p>
+<pre class="hljs"><code><div>scp file user@schizo.cs.byu.edu:
+</div></code></pre>
+<p>The <code>file</code> is the path to the file that you desire to transfer.  <code>user</code> is your username on the remote machine, followed by the address of the remote machine (for the lab machines this can always be <code>schizo.cs.byu.edu</code>).  The <code>:</code> then begins the path on the remote machine to the location where the file should be stored.  The default, no path, in this case, is to place the file in the home directory with the same file name.  Like <code>ssh</code>, this command will prompt for your password on the remote machine.</p>
+<p>Tip: Your machine does not know the file structure of the remote machine, so you cannot use things like tab completion to help complete more complicated paths to the remote file.  For this reason it is recommended to either always <code>scp</code> to your home directory, then move the file later after logging in over <code>ssh</code>, or to create a simply-named folder in your home directory that you can always <code>scp</code> to and from.</p>
+<p>You cannot do <code>scp</code> from within your <code>ssh</code> session.  You can either exit out of your <code>ssh</code> session and then complete the <code>scp</code> command and then reconnect via <code>ssh</code>, or you can open up another terminal from your machine and complete the <code>scp</code> from there, without having to break and remake the <code>ssh</code> connection.  You can be logged in remotely to the CS lab machines multiple times simultaneously, so this is not a problem.  We recommend running the <code>scp</code> command in another terminal window to avoid having to disconnect and reconnect with <code>ssh</code>.</p>
+<p>To copy the file you downloaded, type the following into the terminal on your machine (again, not from within your <code>ssh</code> session!)</p>
+<pre class="hljs"><code><div>scp lab1.tar.gz user@schizo.cs.byu.edu: 
+</div></code></pre>
+<p><code>user</code> should be replaced with your CS username, and if you are not in the folder on your machine containing the downloaded file, you will need to include the relative path to it.</p>
+<h3 id="step-3-confirm-successful-copy-and-move-file">Step 3. Confirm successful copy and move file</h3>
+<p>Let's make sure that the copy was successful.  From within your <code>ssh</code> session, navigate to your home directory and type <code>ls</code>.  Does the file you copied over show up there?  If not, revisit the previous steps and make sure you don't have any typos in your command.  The TAs are eager to help if you feel stuck!</p>
+<p>Now let's move the file into the folder that you created for this class in Task 4.  Use <code>mv</code> to do this.</p>
+<h3 id="step-2-extract-the-directory">Step 2. Extract the directory</h3>
+<p>Now we will need to decompress the file, which contains a compressed directory system, so that you can use it for the next part of this lab. From within the folder containing the file, type:</p>
+<pre class="hljs"><code><div>tar -xzvf lab1.tar.gz
+</div></code></pre>
+<p>This command will unzip the compressed file and you should be able to see a <code>Lab1</code> subdirectory after executing the command.</p>
+<h2 id="part-7-file-systems-tasks">Part 7. File Systems Tasks</h2>
+<p>You now have the skills necessary to work with directories and files.  You will now use the skills you have learned to answer questions about the file folder that you just created on the remote machine. Make sure you execute the following commands from the directory for this class that you created in Task 4.</p>
+<p>The following questions and tasks concern the <code>Lab1</code> directory and its contents that you just extracted. To begin, move into the <code>Lab1</code> directory.  You will find there three subdirectories (<code>f1</code>, <code>f2</code>, and <code>f3</code>) and one file (<code>src.c</code>).</p>
+<hr>
+<ul>
+<li><strong>Lab Question 3 (5 points)</strong>: How many subdirectories are in the <code>f1</code> directory?  What are their names?</li>
+<li><strong>Lab Question 4 (10 points)</strong>: How many files are in the <code>f1</code> directory? What are their names?</li>
+<li><strong>Lab Question 5 (10 points)</strong>: How many subdirectories are in the <code>f2</code> directory (counting all subdirectories of subdirectories etc. as well)? What are their names?</li>
+<li><strong>Lab Question 6 (10 points)</strong>: How many files are in the <code>f2</code> directory (and its sub(sub)directories? Give the name and full path to each one.</li>
+<li><strong>Lab Question 7 (10 points)</strong>: Give the <em>single</em> command you would use to copy <code>Goldilocks.txt</code> into the <code>beds</code> directory, assuming you are in the <code>f2</code> directory.</li>
+<li><strong>Lab Question 8 (10 points)</strong>: Give the <em>single</em> command you would use to delete the <code>JustRight.txt</code> file from the <code>chairs</code> subdirectory (since Goldilocks broke it), assuming you are in the <code>f2</code> directory.</li>
+<li><strong>Lab Question 9 (15 points)</strong>: Our hero Theseus is looking for the Minotaur monster somewhere in the <code>f3</code> directory's maze of subdirectories.  Find the file <code>Minotaur.txt</code> and give the <em>single</em> <code>mv</code> command that would move the <code>Theseus.txt</code> file into the same directory as <code>Minotaur.txt</code> so that Theseus can save the day. (assume that you are in the <code>f3</code> directory when the command is typed.)</li>
+<li><strong>Lab Question 10 (10 points)</strong>: What is the full path to the directory where Theseus and the Minotaur now are?</li>
+</ul>
+<hr>
+<h2 id="part-8-editing-compiling-and-running-a-c-program">Part 8. Editing, Compiling, and Running a C Program</h2>
+<h3 id="step-1-compiling-a-c-program">Step 1. Compiling a C program</h3>
+<p>In the <code>Lab1</code> directory there is a file named <code>src.c</code>.  This is a simple C program.  To run this program it needs to be compiled into an executable program.  This is done using the <code>gcc</code> compiler.  To compile the program type the following at the command prompt</p>
+<pre class="hljs"><code><div>gcc src.c
+</div></code></pre>
+<p>You can now use <code>ls</code> to see another file in the directory called <code>a.out</code>.  This file is the executable program.</p>
+<h3 id="step-2-running-a-program">Step 2. Running a program</h3>
+<p>To run the executable program that you just created you type the following</p>
+<pre class="hljs"><code><div>./a.out
+</div></code></pre>
+<p>The program will display some text, indicating what the value of a first and second number are, and then what the result of some computation is.  All three numbers that are displayed should be 0.</p>
+<p>You will now edit the <code>src.c</code> file to modify its behavior.  Hopefully the contents of the file are not completely foreign, given your previous programming background.  Do not worry about any specifics of the file for now, these will be covered in class throughout the coming weeks.</p>
+<hr>
+<h4 id="task-12-open-the-srcc-file-and-modify-it-so-that-1-it-prints-out-your-name-instead-of-cosmos-and-2-instead-of-each-constant-being-set-to-0-they-are-now-set-to-new-values-as-follows-first-is-set-to-270-and-second-to-289-recompile-the-program-and-run-it-again">Task 12. Open the src.c file and modify it so that 1) it prints out your name instead of Cosmo's, and 2) instead of each constant being set to 0, they are now set to new values as follows: first is set to 270 and second to 289.  Recompile the program and run it again.</h4>
+<hr>
+<hr>
+<ul>
+<li><strong>Lab Question 11 (10 points)</strong>. What is the result that is now output by the <code>a.out</code> program?</li>
+</ul>
+<hr>
+<h3 id="step-3-remote-transfer-the-modified-file">Step 3. Remote transfer the modified file</h3>
+<p>Now that you have modified <code>src.c</code>, you will transfer it back to your machine so that you can turn it in on Canvas.  To do this we will follow the same <code>scp</code> procedure used in Part 6 above, just with a different argment order, since we are transferring from the remote machine.
+First, make a copy of your modified <code>src.c</code> file in your home directory.  You can do this by typing <code>cp src.c ~</code> within the folder containing your modified <code>src.c</code> file.   Then, from another terminal on your machine, type:</p>
+<pre class="hljs"><code><div>scp user@schizo.cs.byu.edu:src.c .
+</div></code></pre>
+<p>This will then prompt you for your password and then copy the file to your current folder on your machine.  If you run into any trouble, please contact a TA. You will turn in this <code>src.c</code> file on Canvas.</p>
+<h2 id="part-9-redirections-input-and-output">Part 9. Redirections, Input and Output</h2>
+<p>A final two commands are super useful for connecting the input and output of programs to files or other programs.
+These are important to be introduced to, as you will use them in the labs.</p>
+<p>The first of these commands is <code>&gt;</code> (or <code>&lt;</code>), which redirects the file or output on the bigger side to whatever is on the other side.<br>
+As an example the command <code>./a.out &gt; output.txt</code> will redirect the output of the program <code>a.out</code> (which is the text printed to the terminal), into a file called <code>output.txt</code> (which will be created).</p>
+<h4 id="task-13-create-an-outputtxt-file-by-using-the-previous-redirection-use-cat-to-view-the-contents-of-the-file">Task 13. Create an output.txt file by using the previous redirection.  Use <code>cat</code> to view the contents of the file.</h4>
+<p>This redirection can also be used to send a file as input to a program that normally gets its input from the command line.  For example, <code>grep</code> is a command/program that finds patterns in files.
+To see how this works, type <code>grep 'first' output.txt</code> on the command line.  grep will print out the line from the file that has the pattern 'first' in it.<br>
+If no file is given to grep, then it will find the pattern in what is typed at the command line.<br>
+You can try this by typing <code>grep 'first'</code> on the command-line.  Then you can type lines of text.  If your line includes the pattern 'first' then grep will reprint it after you type enter.
+(Type Ctrl-D (press Control and the D key at the same time) to end your input to grep).</p>
+<hr>
+<h4 id="task-14-send-outputtxt-as-the-input-to-grep-using-redirection-by-typing-grep-first--outputtxt">Task 14. Send output.txt as the input to grep using redirection, by typing <code>grep 'first' &lt; output.txt</code></h4>
+<hr>
+<p>The second command is called a pipe, and is the symbol <code>|</code>.  It is used to connect the output of one program with the input of another.</p>
+<p>For example, another way to send the output.txt file to grep is to use the cat command (which outputs the file to the terminal) and then connect that output to the input of grep with the pipe (|).</p>
+<hr>
+<h4 id="task-15-send-outputtxt-as-the-input-to-grep-using-cat-and-the-pipe--command-by-typing-cat-outputtxt--grep-first">Task 15. Send output.txt as the input to grep using <code>cat</code> and the pipe (<code>|</code>) command, by typing <code>cat output.txt | grep 'first'</code></h4>
+<hr>
+<p>Try other patterns (instead of 'first') and see what grep outputs.  You will become more familiar with these two redirection commands over the course of this semester.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations!  Having finished all of the above steps you just need to enter your answers to the lab questions into Canvas and then you are done with Lab 1!  Before you go, here are a few tips and tricks for working with the terminal that might prove helpful during the course of this class.</p>
+<h4 id="command-line-tips-and-tricks">Command Line Tips and Tricks</h4>
+<hr>
+<ul>
+<li>You can use the up and down arrows from the command prompt to cycle through the previous commands that you have typed in.  This is especially useful for longer commands that take a long time to type in, or that are hard to remember.  If you have done the command recently, you can just push up and it will bring it back.  A common time this occurs is when you will repeatedly use <code>nano</code> to edit some code, then compile it, and then run it.  Since the code never works right the first time, you can press up three times and you are back to the <code>nano</code> command, then when you are done editing you can press up three times to be back to the compile command, and then up three times to the run program command.</li>
+<li>The command line supports tab completion of directory and file names.  When you are typing the name of a file you can press TAB and it will complete the name.  You need to have enough of the name typed in so that it knows what you want, but this often can save a lot of typing.</li>
+<li>Another useful command is <code>tree</code> which will display the file and (sub)directory structure of the current folder.  Try this with the <code>Lab1</code> folder and see how easy it makes getting a sense for the structure of the file system.</li>
+<li>The <code>man</code> command (for <em>manual</em>) will give you the details of how to use any command that we have talked about, and many more.  For example, just type <code>man ls</code> to get the manual for <code>ls</code> command.  This can be useful if you can't remember a specific option for a command.</li>
+<li>To kill a runaway program from the command line, type CTRL-C.  This is super useful if you accidentally put an infinite loop or something in your code.</li>
+<li>The internet is full of tutorials and guides for using the command line.  There is no limit to what you can do with it, and most experienced programmers use it almost entirely to interact with their machines, because it is so powerful.  Feel free to explore and learn, but the set of commands related to the terminal that you will need for this class is fairly limited, and most are contained in this document.  Others will be introduced when necessary for subsequent labs or assignments.</li>
+</ul>
+<h4 id="summary-of-concepts-and-commands-from-lab-1">Summary of concepts and commands from Lab 1</h4>
+<hr>
+<ul>
+<li><code>ssh</code> (secure shell), this allows us to remotely connect to another machine and use its terminal.</li>
+<li><code>pwd</code> (print working directory) this shows us what the current directory of the terminal is.</li>
+<li><code>ls</code> (list) this list the contents of the current directory</li>
+<li><code>mkdir</code> (make directory) this makes a new subdirectory in the current directory.</li>
+<li><code>cd</code> (change directory) this changes to a new directory.  Use <code>..</code> to change out of a directory to its parent directory.</li>
+<li><code>touch</code> create a new file if it doesn't exist, or make change it's modification time-stamp if it does</li>
+<li><code>cp</code> (copy) create a copy of a file (or directory with the <code>-r</code> option)</li>
+<li><code>mv</code> (move) move a file</li>
+<li><code>rm</code> (remove) delete a file (or directory with the <code>-d</code> or <code>-r</code> options)</li>
+<li><code>nano</code> editor for files</li>
+<li><code>cat</code> (concatentate) displays the contents of a file to the terminal</li>
+<li><code>gcc</code> our compiler for C code.</li>
+<li><code>&gt;</code> redirection of output to a file, and <code>&lt;</code> redirection of a file to input</li>
+<li><code>|</code> pipe - connecting the output of a program to the input of another</li>
+</ul>
+
+</body>
+</html>
