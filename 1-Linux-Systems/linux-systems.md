@@ -206,7 +206,7 @@ Often we want to copy a file from some location where it already exists to our c
 cp lab1.txt lab01.txt
 ```
 
-Often we are copying a file from another directory to another directory, and we want the file to keep the same name.  In this case the second argument, where before we had the name of the newly copied file, will instead indicate the directory where the file should be copied.  As an example, say we are currently in a directory that has two subdirectories: `dir1` and `dir2`.  Let's also say that there is a file in `dir` called `README.txt` that we want to copy into `dir2`.  To do this we would type
+Often we are copying a file from another directory to another directory, and we want the file to keep the same name.  In this case the second argument, where before we had the name of the newly copied file, will instead indicate the directory where the file should be copied.  As an example, say we are currently in a directory that has two subdirectories: `dir1` and `dir2`.  Let's also say that there is a file in `dir1` called `README.txt` that we want to copy into `dir2`.  To do this we would type
 
 ```
 cp dir1/README.txt dir2/
