@@ -137,5 +137,5 @@ To pass off this lab show your code successfully printing out the binary of some
 
 ## Application to Project 1: Myxxd
 
-In project 1 you'll write a program that can print the contents of an entire file in binary. You'll need to adapt your binary conversion code so that it can easily be used on an array of bytes instead of a single one.
+In project 1 you'll write a program that can print the contents of an entire file in hexadecimal/binary. For hexadecimal, you can use `printf`. For binary, you need to adapt your binary conversion code so that it can easily be used on an array of bytes instead of an individual byte.
 
