@@ -2,6 +2,7 @@
 
 This lab will give you practice typecasting pointers and working with memory in different ways. 
 This lab is intended to prepare you to succesfully complete project 2. 
+The code you need for this lab is in `extract.c` and `padding.c`
 
 ## Decomposing the Project 2 Task
 To begin this lab we want to make sure you understand how project 2 relates to the provided starter code. 
