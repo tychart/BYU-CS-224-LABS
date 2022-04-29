@@ -1,3 +1,3 @@
 # byu-cs-224-labs
 
-Repository of lab assignments for BYU CS 224
+Repository of lab programming assignments for BYU CS 224
