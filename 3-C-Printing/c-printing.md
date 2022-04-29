@@ -31,27 +31,7 @@ These methods will all work for any whole number type (`char/short/int/long`)
 
 Everything that happens to a variable, or that a variable is used for, depend only on the bits that make up that variable, not how they were initialized.  As an example, testing if two variables are the equal will check the bits that make up those variables.  
 
-Consider the following code
-
-```c
-#include <stdio.h>
-
-int main()
-{
-    unsigned char u = 51;
-    unsigned char c = '3';
-    
-    if(u == c){
-        printf("They are the same!\n");
-    }
-    else{
-        printf("They are different!\n");
-    }
-    return 0;
-}
-```
-
-This will print out that `u` and `c` are the same, even though we initialized them in different ways.  Try it out!
+Consider the code in `equal.c`. his will print out that `u` and `c` are the same, even though we initialized them in different ways.  Try it out!
 
 ---
 
@@ -75,31 +55,7 @@ Similarly to how the bits of a variable can be initialized in many different way
 
 For arrays of `char` variables, we can also use the `%s` format string with `printf`, which will print out the characters corresponding to the ASCII codes of each `char` in the array until it hits a `char` with a value of 0.  We call this the `NULL` character. 
 
-The next 2 tasks will concern the following code: 
-
-```c
-#include <stdio.h>
-
-int main()
-{
-    // This is our array of chars
-    char s[10];
-    int t;
-    
-    // Input the char values
-    for(int i = 0; i < 9; i++){
-        scanf("%d", &t); //scan the int 
-        s[i] = t;        //save in the char 
-    }
-    
-    s[9] = 0; //Set the NULL character
-    
-    // Output the array as a C-string
-    printf("%s", s);
-
-    return 0;
-}
-```
+The next 2 tasks will concern the code found in `string.c`.
 
 ---
 
@@ -117,7 +73,7 @@ int main()
 
 Unfortunately for you, `printf` doesn't have a format string that will print variables in binary.  Instead, you will get to write code that does this (lucky you!).  We will describe to you how this is to be done, and for this lab, you will do it for a single `unsigned char`. 
 
-You can start with the following simple code. 
+You can start with the code in `binary.c`. 
 ```c
 #include <stdio.h>
 
