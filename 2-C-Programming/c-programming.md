@@ -7,7 +7,7 @@ This lab will introduce you to some of the details of the C programming language
 
 In this first section we will get some practice with some of the C basics that will be important this semester.  Start with an empty `main` function and we will fill it out and modify it as we go.
 
-Tip: you can use `touch` to create an empty file and `nano` to edit it
+Tip: you can use `touch` to create an empty file, `nano` to edit it, and `gcc` to compile
 
 ### Basic Types
 
@@ -72,7 +72,7 @@ int scores [5] = {1, 2, 3, 4, 5};
 
 The size (5 in this case) must be at least as large as the number of elements in the braces.  Any spots in the array that are not initialized, (like if we did `int scores [100] = {1,2,3,4,5}`) will be left empty.  If you omit the array size, then the array will be made just large enough to hold everything in the braces (i.e. `int scores [] = {1,2,3,4};` would create an array with size 4.)
 
-One important thing to note about arrays in C is that the compiler *does not track how big the array is*!  This means that no one will stop you from accessing an array element that doesn't exist.  This is the source of a lot of bugs and problems in C, but is a result of the simplicity of the language and the power that it gives the programmer. 
+One important thing to note about arrays in C is that the compiler *does not track how big the array is*!  This means that no one will stop you from accessing an array element that doesn't exist.  This is the source of a lot of bugs and problems in C, but is a result of the simplicity of the language and the power that it gives the programmer. Try accessing one of you arrays with an index larger than the maximum and see what you get back!
 
 ---
 
