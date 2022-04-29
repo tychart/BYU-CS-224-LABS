@@ -31,7 +31,7 @@ These methods will all work for any whole number type (`char/short/int/long`)
 
 Everything that happens to a variable, or that a variable is used for, depend only on the bits that make up that variable, not how they were initialized.  As an example, testing if two variables are the equal will check the bits that make up those variables.  
 
-Consider the code in `equal.c`. his will print out that `u` and `c` are the same, even though we initialized them in different ways.  Try it out!
+Consider the code in `equal.c`.  This will print out that `u` and `c` are the same, even though we initialized them in different ways.  Try it out!
 
 ---
 
@@ -73,7 +73,7 @@ The next 2 tasks will concern the code found in `string.c`.
 
 Unfortunately for you, `printf` doesn't have a format string that will print variables in binary.  Instead, you will get to write code that does this (lucky you!).  We will describe to you how this is to be done, and for this lab, you will do it for a single `unsigned char`. 
 
-You can use the code in [binary.c] to get started. 
+You can use the code in `binary.c` to get started. 
 
 For the `unsigned char` value set to the ASCII code for 'A' your code should output `01000001`.
 
@@ -89,6 +89,18 @@ if (x % 2 == 1) {
   /* store a 0 for the bit */
 }
 x = x / 2;
+```
+
+```
+x = number to convert
+
+repeat 8 times
+    if x % 2 == 1 then
+        store a 1 for the bit
+    else
+        store a 0 for the bit
+    x = x / 2
+end
 ```
 
 The algorithm generates the least significant bit first and the most significant bit last. Suppose that `x = 13`.
