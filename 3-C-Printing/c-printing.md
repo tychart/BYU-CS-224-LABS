@@ -73,20 +73,7 @@ The next 2 tasks will concern the code found in `string.c`.
 
 Unfortunately for you, `printf` doesn't have a format string that will print variables in binary.  Instead, you will get to write code that does this (lucky you!).  We will describe to you how this is to be done, and for this lab, you will do it for a single `unsigned char`. 
 
-You can start with the code in `binary.c`. 
-```c
-#include <stdio.h>
-
-int main()
-{
-    // This is our array of chars
-    unsigned char c = 'A';
-    
-    // Your code to print out c in binary
-    
-    return 0;
-}
-```
+You can use the code in `binary.c` to get started. 
 
 For the `unsigned char` value set to the ASCII code for 'A' your code should output `01000001`.
 
@@ -134,5 +121,9 @@ Test cases:
 
 To pass off this lab show your code successfully printing out the binary of some `unsigned char` variables to a TA. 
 
+---
 
+## Application to Project 1: Myxxd
+
+In project 1 you'll write a program that can print the contents of an entire file in binary. You'll need to adapt your binary conversion code so that it can easily be used on an array of bytes instead of a single one.
 
