@@ -1,12 +1,13 @@
 # Lab 2 - C Programming
 
 This lab will introduce you to some of the details of the C programming language that we will use this semester and give you a chance to practice writing code in the C language. 
-This lab can be completed on any computing system with C.  A convenient online C environment can be found at <https://www.tutorialspoint.com/compile_c_online.php>.  
 
 
 ## Some C Basics
 
 In this first section we will get some practice with some of the C basics that will be important this semester.  Start with an empty `main` function and we will fill it out and modify it as we go.
+
+Tip: you can use `touch` to create an empty file and `nano` to edit it
 
 ### Basic Types
 
@@ -42,6 +43,8 @@ int j = *ip;
 ```
 
 We can print out the address that a pointer contains using the `%p` format string with `printf`.  As an example, to print out the address of `c_p` we can do ``printf("%p", c_p);``
+
+Tip: `printf` is part of the standard I/O library, to include it add `#include <stdio.h>` to the top of your code
 
 ---
 
