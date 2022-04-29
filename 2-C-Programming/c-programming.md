@@ -1,6 +1,6 @@
 # Lab 2 - C Programming
 
-This lab will introduce you to some of the details of the C programming language that we will use this semester and give you a chance to practice writing code in the C language. 
+This lab will introduce you to some of the details of the C programming language that we will use this semester and give you a chance to practice writing code in the C language. This lab should be done on the lab machines, remotely or in-person.
 
 
 ## Some C Basics
