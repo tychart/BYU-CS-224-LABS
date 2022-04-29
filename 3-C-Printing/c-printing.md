@@ -73,7 +73,7 @@ The next 2 tasks will concern the code found in `string.c`.
 
 Unfortunately for you, `printf` doesn't have a format string that will print variables in binary.  Instead, you will get to write code that does this (lucky you!).  We will describe to you how this is to be done, and for this lab, you will do it for a single `unsigned char`. 
 
-You can use the code in `binary.c` to get started. 
+You can use the code in [binary.c] to get started. 
 
 For the `unsigned char` value set to the ASCII code for 'A' your code should output `01000001`.
 
