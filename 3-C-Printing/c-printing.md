@@ -81,24 +81,14 @@ There are many different ways you could determine the binary version of an `unsi
 One option is to implement the algorithm covered in class to convert an `unsigned char` to a string in bits. 
 The pseudo-code for this is given below and takes as input an `unsigned char` with name `x`.
 
-```c
-/* repeat 8 times */
-if (x % 2 == 1) {
-  /* store a 1 for the bit */
-} else {
-  /* store a 0 for the bit */
-}
-x = x / 2;
-```
-
 ```
 x = number to convert
 
 repeat 8 times
-    if x % 2 == 1 then
-        store a 1 for the bit
+    if x mod 2 == 1 then
+        store a 1 bit
     else
-        store a 0 for the bit
+        store a 0 bit
     x = x / 2
 end
 ```
