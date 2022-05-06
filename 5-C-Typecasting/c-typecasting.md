@@ -10,7 +10,7 @@ Let's start by looking at the overall structure of a BMP file (All memory images
 
 ![Overall BMP file structure]( bmpFileFormat.jpg )
 
-***A more detailed breakdown of the header files is in the following files: [full bmp format info](bmp-file-info.pdf), [header ordering](headerOrder.png), [BMP header](BMPheader.png), and [DIB header](DIBHeader.png).***
+***For a more detailed breakdown of the header contents, check the following files: [full bmp format info](bmp-file-info.pdf), [header ordering](headerOrder.png), [BMP header](BMPheader.png), and [DIB header](DIBHeader.png).***
 
 Your tasks in project 2 are to 
   
