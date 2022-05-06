@@ -10,6 +10,8 @@ Let's start by looking at the overall structure of a BMP file (All memory images
 
 ![Overall BMP file structure]( bmpFileFormat.jpg )
 
+***A more detailed breakdown of the header files is in the following files: [full bmp format info](bmp-file-info.pdf), [header ordering](headerOrder.png), [BMP header](BMPheader.png), and [DIB header](DIBHeader.png).***
+
 Your tasks in project 2 are to 
   
 1. grab relevant values from the header file (width & height of image, offset of the image bytes from the beginning of the file) (*see next task*) 
