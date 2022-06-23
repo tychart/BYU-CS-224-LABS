@@ -91,7 +91,7 @@ How far apart are the addresses of the different variables in your arrays?  Is t
 
 ## Some Programming Problems
 
-For the rest of lab we will give you some practice with a few small programming problems.  To complete this lab, all you have to do is show a TA that you got things working! 
+For the rest of lab we will give you some practice with a few small programming problems.  To complete this lab, all you have to do is show a TA that you got tasks 5 and 6 working.
 
 ---
 
@@ -136,3 +136,4 @@ function bubble-sort(A : list of numbers)
   until not swapped
 end function
 ```
+
