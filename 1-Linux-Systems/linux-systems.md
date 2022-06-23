@@ -196,7 +196,7 @@ in the directory where you want the file to be created.
 
 ---
 
-#### Task 6. Use `touch` to create a file called `lab1.txt` in the directory for this class that you created for Task 4. 
+#### Task 6. Use `touch` to create a file called `lab1.txt` inside the `1-Linux-Systems` directory.
 
 ---
 
