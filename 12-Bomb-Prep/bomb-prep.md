@@ -8,9 +8,9 @@ This lab is intended to prepare you to successfully complete the final two proje
 
 ## Using the debugger: gdb
 
-Familiarize yourself with the gdb primer found here: <https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/gdb-primer.md>
+Familiarize yourself with the gdb primer found here: <https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/12-Bomb-Prep/gdb-primer.md>
 
-Then, download the c program found here: <https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/lab12.c>. 
+Then, download the c program found here: <https://bitbucket.org/byucs224/byu-cs-224-labs/src/master/12-Bomb-Prep/lab12.c>. 
 
 Move this onto your CS lab account using `scp` or something similar (see Lab 1 for a refresher if it has been a while). 
 
