@@ -80,7 +80,7 @@ You are now remotely logged into a lab machine and can type commands at the term
 
 ---
 
-#### Task 2: ssh into a lab machines
+#### Task 2: ssh into a lab machine
 
 ---
 
@@ -157,7 +157,6 @@ If you type `cd` and press enter (without an argument) it will return you to you
 #### Task 5. Use `cd` to move into the directory you created for Task 4.  Then use `cd ..` to move back into your home directory.
 
 ---
----
 
   * **Lab Question 2 (5 points)**: What is the full path to your new directory? (hint: use `pwd` after you have moved into the directory)
 
@@ -188,7 +187,7 @@ You should now have both the `byu-cs-224-labs` and `byu-cs-224-projects` directo
 
 ### Command 2. touch
 
-To create an empty file of a specific name in the current directory, we will use the command `touch`.  This command requires the name of the file to be created/touched.  If the file already exists, then the file will not be changed, except for the time stamp that indicates when it was modified.  This is useful in many situations. If the file does not exist, then `touch` will create it.  As an example, to create a file called `lab0.txt` you would type
+To create an empty file of a specific name in the current directory, we will use the command `touch`.  This command requires the name of the file to be created/touched.  If the file already exists, then the file will not be changed, except for the time stamp that indicates when it was modified.  This is useful in many situations. If the file does not exist, then `touch` will create it.  As an example, to create a file called `lab1.txt` you would type
 ```
 touch lab1.txt
 ```
@@ -422,7 +421,7 @@ You can try this by typing `grep 'first'` on the command-line.  Then you can typ
 
 The second command is called a pipe, and is the symbol `|`.  It is used to connect the output of one program with the input of another.  
 
-For example, another way to send the output.txt file to grep is to use the cat command (which outputs the file to the terminal) and then connect that output to the input of grep with the pipe (|). 
+For example, another way to send the output.txt file to grep is to use the cat command (which outputs the file to the terminal) and then connect that output to the input of grep with the pipe (`|`). 
 
 ---
 
