@@ -347,7 +347,7 @@ The following questions and tasks concern the `Lab1` directory and its contents 
  * **Lab Question 4 (10 points)**: How many files are in the `f1` directory? What are their names?
  * **Lab Question 5 (10 points)**: How many subdirectories are in the `f2` directory (counting all subdirectories of subdirectories etc. as well)? What are their names?
  * **Lab Question 6 (10 points)**: How many files are in the `f2` directory (and its sub(sub)directories? Give the name and full path to each one. 
- * **Lab Question 7 (10 points)**: Give the *single* command you would use to copy `Goldilocks.txt` into the `beds` directory, assuming you are in the `f2` directory.
+ * **Lab Question 7 (10 points)**: Give the *single* `cp` command you would use to copy `Goldilocks.txt` into the `beds` directory, assuming you are in the `f2` directory.
  * **Lab Question 8 (10 points)**: Give the *single* command you would use to delete the `JustRight.txt` file from the `chairs` subdirectory (since Goldilocks broke it), assuming you are in the `f2` directory.
  * **Lab Question 9 (15 points)**: Our hero Theseus is looking for the Minotaur monster somewhere in the `f3` directory's maze of subdirectories.  Find the file `Minotaur.txt` and give the *single* `mv` command that would move the `Theseus.txt` file into the same directory as `Minotaur.txt` so that Theseus can save the day. (assume that you are in the `f3` directory when the command is typed.)
  * **Lab Question 10 (10 points)**: What is the full path to the directory where Theseus and the Minotaur now are?
