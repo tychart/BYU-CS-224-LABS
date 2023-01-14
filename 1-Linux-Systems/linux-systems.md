@@ -338,7 +338,9 @@ This command will unzip the compressed file and you should be able to see a `Lab
 
 You now have the skills necessary to work with directories and files.  You will now use the skills you have learned to answer questions about the file folder that you just created on the remote machine. Make sure you execute the following commands from the directory for this class that you created in Task 4. 
 
-The following questions and tasks concern the `Lab1` directory and its contents that you just extracted. To begin, move into the `Lab1` directory.  You will find there three subdirectories (`f1`, `f2`, and `f3`) and one file (`src.c`). 
+The following questions and tasks concern the `Lab1` directory and its contents that you just extracted. To begin, move into the `Lab1` directory.  You will find there three subdirectories (`f1`, `f2`, and `f3`) and one file (`src.c`).  
+
+_Hint: For any question that asks you to give a command, you can run your answer to test it!_  
 
 ---
 
