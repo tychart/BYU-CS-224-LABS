@@ -2,15 +2,15 @@
 
 int getPadding(int width)
 {
-    //COMPUTE THE PADDING HERE AND RETURN IT
-    return 0; //CHANGE THIS LINE
+    // COMPUTE THE PADDING HERE AND RETURN IT
+    return 0; // CHANGE THIS LINE
 }
 
 int main()
 {
-    //The test widths
+    // The test widths, in pixels
     int w[] = {20, 400, 273, 750, 1200, 6, 7, 8};
-    //The correct paddings
+    // The correct paddings, in bytes
     int p[] = {0, 0, 1, 2, 0, 2, 3, 0};
 
     int examples = 8;
