@@ -59,22 +59,32 @@ Once you have located and run the terminal application you will use it to run th
 
 We will now cover the process that allows us to remotely log into the CS department lab machines. 
 
+
+### Important Note
+The ssh and scp commands described below will only work from within the CS network.
+If you are using a machine that is outside the CS network, you will need to connect to the CS VPN.
+Instructions for using the VPN are found here: https://docs.cs.byu.edu/doku.php?id=vpn-configuration-and-use
+
+
 ### Step 1. Secure Shell (SSH)
 To remotely log into the department machines, we will use a program called `ssh`.  This stands for *Secure Shell* or *Secure Socket Shell*.  This program allows us to be on the terminal of another computer from a terminal on another computer. 
 
 To run the `ssh` program, you will need to type the following at the command prompt: 
 
 ```
-ssh user@schizo.cs.byu.edu
+ssh user@machine.cs.byu.edu
 ```
 
-where `user` should be replaced by your cs id / user name.  This will connect to the schizo machine in the department, which will in turn connect you to another lab machine which you will work on. If you ever want to connect directly to a specific lab machine, you can replace `schizo` with the name of that machine in the ssh command.
+where `user` should be replaced by your cs id / user name and `machine` should be replaced with the name of one of the CS lab machines.
+The names of CS lab machines can be found on this page: https://docs.cs.byu.edu/doku.php?id=open-lab-layout
+Examples of machine names you might use are: nyc, paris, rio, rome, tokyo.
+
 It rarely matters exactly which machine you are connected to, and all CS machines have access to the same file system, so all of your files and folders will be exactly the same on any CS machine.
-You will be prompted to enter your CS account password. You will then be asked if you want to trust the certificate of the `schizo` machine (since this is your first time connecting).  You can type `Y` or `Yes` and then press enter. 
+You will be prompted to enter your CS account password. You will then be asked if you want to trust the certificate of the machine (since this is your first time connecting).  You can type `Y` or `Yes` and then press enter. 
 
 If you have trouble with your CS account, look first at https://docs.cs.byu.edu/doku.php?id=setting-up-your-account-with-the-cs-authentication-system for help.  If that does not work, then submit a ticket via the ticket system at https://ticket.cs.byu.edu which is the primary support point for the open labs (preferred). The System Administrators may be contacted in person at 1140 TMCB or at system@cs.byu.edu if needed.
 
-Once authenticated, you will see a welcome message from the department machine and then another command prompt, which will display `user@machine:~$`, where `user` will be replaced by your cs user name and `machine` will be the name of the machine that you get connected to.
+Once authenticated, you will see a welcome message from the department machine and then another command prompt, which will display `user@machine:~$`, where `user` will be replaced by your cs user name and `machine` will be the name of the machine you connected to.
 
 You are now remotely logged into a lab machine and can type commands at the terminal (the prompt you are now looking at) which will be executed on the remote machine. 
 
@@ -299,13 +309,14 @@ The link is in the Lab 1 assignment.  Download this file to your computer. Remem
 
 The simplest tool to copy files to or from a remote machine is called `scp`, which stands for *secure copy*. This is used from the command line on your machine in a similar manner to `ssh`, and has a syntax similar to `cp`.  
 
-The syntax to copy a file to a remote machine (we will use the cs `schizo.cs.byu.edu` for this example) is: 
+The syntax to copy a file to a remote machine is: 
 
 ```
-scp file user@schizo.cs.byu.edu:
+scp file user@machine.cs.byu.edu:
 ```
 
-The `file` is the path to the file that you desire to transfer.  `user` is your username on the remote machine, followed by the address of the remote machine (for the lab machines this can always be `schizo.cs.byu.edu`).  The `:` then begins the path on the remote machine to the location where the file should be stored.  The default, no path, in this case, is to place the file in the home directory with the same file name.  Like `ssh`, this command will prompt for your password on the remote machine.  
+The `file` is the path to the file that you desire to transfer, `user` is your username on the remote machine, and `machine` is the name of the remote machine (the name of a CS lab machine).
+The `:` then begins the path on the remote machine to the location where the file should be stored.  The default, no path, in this case, is to place the file in the home directory with the same file name.  Like `ssh`, this command will prompt for your password on the remote machine.  
 
 Tip: Your machine does not know the file structure of the remote machine, so you cannot use things like tab completion to help complete more complicated paths to the remote file.  For this reason it is recommended to either always `scp` to your home directory, then move the file later after logging in over `ssh`, or to create a simply-named folder in your home directory that you can always `scp` to and from.  
 
@@ -314,10 +325,10 @@ You cannot do `scp` from within your `ssh` session.  You can either exit out of 
 To copy the file you downloaded, type the following into the terminal on your machine (again, not from within your `ssh` session!)  
 
 ```
-scp lab1.tar.gz user@schizo.cs.byu.edu: 
+scp lab1.tar.gz user@machine.cs.byu.edu: 
 ```
 
-`user` should be replaced with your CS username, and if you are not in the folder on your machine containing the downloaded file, you will need to include the relative path to it. 
+`user` should be replaced with your CS username, `machine` should be replaced with the name of a machine in the CS lab, and if you are not in the folder on your machine containing the downloaded file, you will need to include the relative path to it. 
 
 ### Step 3. Confirm successful copy and move file
 
@@ -395,7 +406,7 @@ Now that you have modified `src.c`, you will transfer it back to your machine so
 First, make a copy of your modified `src.c` file in your home directory.  You can do this by typing `cp src.c ~` within the folder containing your modified `src.c` file.   Then, from another terminal on your machine, type: 
 
 ```
-scp user@schizo.cs.byu.edu:src.c .
+scp user@machine.cs.byu.edu:src.c .
 ```
 
 This will then prompt you for your password and then copy the file to your current folder on your machine.  If you run into any trouble, please contact a TA. You will turn in this `src.c` file on Canvas. 
