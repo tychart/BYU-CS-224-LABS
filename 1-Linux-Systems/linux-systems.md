@@ -61,9 +61,37 @@ We will now cover the process that allows us to remotely log into the CS departm
 
 
 ### Important Note
-The ssh and scp commands described below will only work from within the CS network.
-If you are using a machine that is outside the CS network, you will need to connect to the CS VPN.
-Instructions for using the VPN are found here: https://docs.cs.byu.edu/doku.php?id=vpn-configuration-and-use
+The `ssh` and `scp` commands described below will only work from within the CS network.
+There are two ways to access the CS lab machines from outside the CS network.
+
+#### 1. DUO
+This is the preferred approach.
+With this approach you will connect to "moat.cs.byu.edu".
+Your `ssh` command should look like this:
+```
+ssh user@moat.cs.byu.edu
+```
+The first time you run this command
+you will need to complete some setup steps described here:
+https://docs.cs.byu.edu/doku.php?id=remote-access-home
+After the first time, you will need to accept
+a DUO push on your phone each time you connect.
+
+#### 2. VPN
+You may want to use this approach if the DUO approach is not working for you.
+With this approach you will connect to the CS VPN.
+Instructions for using the VPN are found here:
+https://docs.cs.byu.edu/doku.php?id=vpn-configuration-and-use
+After connecting to the VPN,
+you will connect to one of the machines in the CS lab.
+Some examples of machines in the CS lab are:
+
+* nyc.cs.byu.edu
+* paris.cs.byu.edu
+* rio.cs.byu.edu
+* rome.cs.byu.edu
+* tokyo.cs.byu.edu
+
 
 
 ### Step 1. Secure Shell (SSH)
@@ -76,7 +104,6 @@ ssh user@machine.cs.byu.edu
 ```
 
 where `user` should be replaced by your cs id / user name and `machine` should be replaced with the name of one of the CS lab machines.
-Examples of machine names you might use are: nyc, paris, rio, rome, tokyo.
 
 It rarely matters exactly which machine you are connected to, and all CS machines have access to the same file system, so all of your files and folders will be exactly the same on any CS machine.
 You will be prompted to enter your CS account password. You will then be asked if you want to trust the certificate of the machine (since this is your first time connecting).  You can type `Y` or `Yes` and then press enter. 
