@@ -76,7 +76,6 @@ ssh user@machine.cs.byu.edu
 ```
 
 where `user` should be replaced by your cs id / user name and `machine` should be replaced with the name of one of the CS lab machines.
-The names of CS lab machines can be found on this page: https://docs.cs.byu.edu/doku.php?id=open-lab-layout
 Examples of machine names you might use are: nyc, paris, rio, rome, tokyo.
 
 It rarely matters exactly which machine you are connected to, and all CS machines have access to the same file system, so all of your files and folders will be exactly the same on any CS machine.
