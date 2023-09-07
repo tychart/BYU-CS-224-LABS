@@ -356,6 +356,8 @@ scp lab1.tar.gz user@machine.cs.byu.edu:
 
 `user` should be replaced with your CS username, `machine` should be replaced with the name of a machine in the CS lab, and if you are not in the folder on your machine containing the downloaded file, you will need to include the relative path to it. 
 
+Note that if you are using `scp` with `moat.cs.byu.edu` there will be a DUO push to your phone, but the `scp` command will not give any message about a DUO push.
+
 ### Step 3. Confirm successful copy and move file
 
 Let's make sure that the copy was successful.  From within your `ssh` session, navigate to your home directory and type `ls`.  Does the file you copied over show up there?  If not, revisit the previous steps and make sure you don't have any typos in your command.  The TAs are eager to help if you feel stuck!
