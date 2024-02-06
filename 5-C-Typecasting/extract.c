@@ -8,14 +8,20 @@ int main()
     unsigned char * start = (unsigned char *)c;
 
     // Get the int that starts at offset 7
-    int i =  0;      //CHANGE THIS LINE
+    // sprintf(tempStr, )
+    char str[20]; // Assuming the maximum length of the concatenated string won't exceed 20 characters
+     // Concatenate the integer with itself as a string
+    // return atoi(str); // Convert the concatenated string back to an integer
+
+    sprintf(str, "%d%d%d", (int)start[7], (int)start[7], (int)start[7]); int i =  atoi(str); //CHANGE THIS LINE
 
     // Print out int in decimal
 	// Should print "i :  224224224"
     printf("i : %d\n", i);
 
     // Get the short that starts at offset 15
-    short s = 0;    //CHANGE THIS LINE
+    short * shortPtr = (short *)start;
+    short s = (short) start[15] | start[16] << 8;    //CHANGE THIS LINE
 
     // Print out short in decimal
 	// Should print "s : 1830"
