@@ -6,10 +6,11 @@ int main()
     unsigned char c = 0xab;
 
     //Extract the first nibble (least significant, or b)
-    unsigned char firstNibble = 0; //CHANGE THIS LINE
+    unsigned char firstNibble = c & 0x0f; //CHANGE THIS LINE
+    
 
     //Extract the second nibble (most significant, or a)
-    unsigned char secondNibble = 0; //CHANGE THIS LINE
+    unsigned char secondNibble = (c >> 4) & 0xf ; //CHANGE THIS LINE
 
     //Print out each in hex to ensure correctness
     printf("First nibble : %x\n", firstNibble);
