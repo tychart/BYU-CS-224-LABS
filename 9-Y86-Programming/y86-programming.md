@@ -34,5 +34,16 @@ Implementing both `NOP` and `HALT` only require code to be added to the `fetchSt
 
 Your task now: write out the computational table (in the style of the figures in chapter 4) for both the `NOP` and `HALT` instructions.  Once complete, show them to your TA and you are done with the lab for this week.  On then to project 3!
 
+```
 NOP
-Fetch valp = pc + 1
+    Fetch 
+        valp = pc + 1
+    PC Update
+        pc = valp
+HALT
+    Fetch
+        valp = pc + 1
+    PC Update
+        status = HLT
+        pc = valp
+```
